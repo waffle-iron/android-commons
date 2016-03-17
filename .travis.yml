@@ -9,5 +9,5 @@ android:
     - android-23
     - extra-android-m2repository
 
-script:
-  ./gradlew build
+before_install:
+  - script/start_emulator.sh
