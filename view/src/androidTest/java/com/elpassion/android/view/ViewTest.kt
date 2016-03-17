@@ -12,4 +12,10 @@ class ViewTest : ApplicationTestCase<Application>(Application::class.java) {
         view.show()
         assertEquals(View.VISIBLE, view.visibility)
     }
+
+    fun testShouldSetViewVisibilityToGone() {
+        val view = View(context)
+        view.hide()
+        assertEquals(View.GONE, view.visibility)
+    }
 }
