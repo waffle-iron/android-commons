@@ -26,3 +26,19 @@ int commonVersionCode() {
 String commonVersionName() {
     return '0.0.1'
 }
+
+int commonCompileSdkVersion() {
+    return 23
+}
+
+int commonTargetSdkVersion() {
+    return commonCompileSdkVersion()
+}
+
+int commonMinSdkVersion() {
+    return 16
+}
+
+String commonBuildToolsVersion() {
+    return '23.0.2'
+}
