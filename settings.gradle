@@ -1,1 +1,1 @@
-include ':pager', ':recycler'
+include ':pager', ':recycler', ':parcelable'
