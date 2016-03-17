@@ -19,9 +19,12 @@ android {
         targetSdkVersion commonTargetSdkVersion()
         versionCode commonVersionCode()
         versionName commonVersionName()
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 }
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    androidTestCompile 'com.android.support.test:runner:0.4.1'
+    androidTestCompile 'junit:junit:4.12'
 }
