@@ -1,2 +1,2 @@
-# elpassion_android_libraries
-Libraries used in most ElPassion Android projects.
+# android-commons
+Libraries used in most EL Passion Android projects.
