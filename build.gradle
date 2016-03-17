@@ -1,0 +1,28 @@
+buildscript {
+    ext.support_version = '23.2.1'
+    ext.kotlin_version = '1.0.0'
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.0-alpha3'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+int commonVersionCode() {
+    return 1
+}
+
+String commonVersionName() {
+    return '0.0.1'
+}
