@@ -11,11 +11,8 @@ interface SharedPreferenceRepository<T> {
     fun read(key: String): T?
 }
 
-inline fun <reified T> createSharedPrefs(noinline sharedPreferencesProvider: () -> SharedPreferences): SharedPreferenceRepository<T> {
-    return createSharedPrefs(sharedPreferencesProvider, { Gson() })
-}
-
-inline fun <reified T> createSharedPrefs(noinline sharedPreferencesProvider: () -> SharedPreferences, noinline gsonProvider: () -> Gson): SharedPreferenceRepository<T> {
+inline fun <reified T> createSharedPrefs(noinline sharedPreferencesProvider: () -> SharedPreferences,
+                                         noinline gsonProvider: () -> Gson = ::Gson): SharedPreferenceRepository<T> {
     return object : SharedPreferenceRepository<T> {
 
         private val sharedPreferences by lazy(sharedPreferencesProvider)
