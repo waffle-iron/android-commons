@@ -15,5 +15,8 @@ class CachingSharedPreferenceRepository<T>(private val repository: SharedPrefere
         return valueMap[key]
     }
 
-    override fun write(key: String, value: T) = repository.write(key, value)
+    override fun write(key: String, value: T) {
+        cacheMap.add(key)
+        repository.write(key, value)
+    }
 }
