@@ -1,16 +1,18 @@
 package com.elpassion.android.sharedpreferences
 
+import java.util.*
+
 class CachingSharedPreferenceRepository<T>(private val repository: SharedPreferenceRepository<T>) : SharedPreferenceRepository<T> {
 
-    private var cache = false
-    private var value: T? = null
+    private val cacheMap = HashSet<String>()
+    private val valueMap = HashMap<String, T?>()
 
     override fun read(key: String): T? {
-        if (!cache) {
-            cache = true
-            value = repository.read(key)
+        if (!cacheMap.contains(key)) {
+            cacheMap.add(key)
+            valueMap[key] = repository.read(key)
         }
-        return value
+        return valueMap[key]
     }
 
     override fun write(key: String, value: T) = repository.write(key, value)
