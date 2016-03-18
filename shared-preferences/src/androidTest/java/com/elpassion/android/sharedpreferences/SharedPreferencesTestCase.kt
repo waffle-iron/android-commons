@@ -3,6 +3,7 @@ package com.elpassion.android.sharedpreferences
 import android.preference.PreferenceManager
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
+import org.junit.After
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -40,6 +41,14 @@ class SharedPreferencesTestCase {
 
         val valueRead = repository.read("key")
         Assert.assertEquals(valueSaved, valueRead)
+    }
+
+    @After
+    fun clearSharedPrefs() {
+        sharedPreferences.value
+                .edit()
+                .clear()
+                .apply()
     }
 
     private val sharedPreferences = lazy { PreferenceManager.getDefaultSharedPreferences(getContext()) }
