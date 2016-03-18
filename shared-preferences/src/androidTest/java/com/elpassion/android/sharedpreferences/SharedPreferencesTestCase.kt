@@ -43,6 +43,14 @@ class SharedPreferencesTestCase {
         Assert.assertEquals(valueSaved, valueRead)
     }
 
+    @Test
+    fun shouldBePossibleToSaveNull() {
+        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences)
+        repository.write("key", null)
+
+        Assert.assertEquals(null, repository.read("key"))
+    }
+
     @After
     fun clearSharedPrefs() {
         sharedPreferences.value

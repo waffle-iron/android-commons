@@ -6,7 +6,7 @@ import com.google.gson.reflect.TypeToken
 
 interface SharedPreferenceRepository<T> {
 
-    fun write(key: String, value: T)
+    fun write(key: String, value: T?)
 
     fun read(key: String): T?
 }
@@ -16,7 +16,7 @@ inline fun <reified T> createSharedPrefs(sharedPreferences: Lazy<SharedPreferenc
     return object : SharedPreferenceRepository<T> {
         private val type = object : TypeToken<T>() {}.type
 
-        override fun write(key: String, value: T) {
+        override fun write(key: String, value: T?) {
             sharedPreferences.value.edit()
                     .putString(key, gson.value.toJson(value, type))
                     .apply()
