@@ -60,5 +60,13 @@ class CachedSharedPreferencesTestCase {
         assertSame(value, cachingRepository.read("key"))
     }
 
+    @Test
+    fun writeShouldActuallyWriteToRepository() {
+        val value = SimpleStructure(0)
+        cachingRepository.write("key", value)
+
+        verify(repositoryMock, times(1)).write("key", value)
+    }
+
     data class SimpleStructure(val value: Int)
 }
