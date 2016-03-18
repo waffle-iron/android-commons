@@ -53,12 +53,12 @@ class SharedPreferencesTestCase {
 
     @After
     fun clearSharedPrefs() {
-        sharedPreferences.value
+        sharedPreferences()
                 .edit()
                 .clear()
                 .apply()
     }
 
-    private val sharedPreferences = lazy { PreferenceManager.getDefaultSharedPreferences(getContext()) }
+    private val sharedPreferences = { PreferenceManager.getDefaultSharedPreferences(getContext()) }
     private fun getContext() = InstrumentationRegistry.getInstrumentation().targetContext
 }
