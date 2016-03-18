@@ -1,5 +1,6 @@
 package com.elpassion.android.sharedpreferences
 
+import android.preference.PreferenceManager
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
 import org.junit.Assert
@@ -11,7 +12,7 @@ class SharedPreferencesTestCase {
 
     @Test
     fun shouldSaveStringToRepository() {
-        val repository = createSharedPrefs<String>(getContext())
+        val repository = createSharedPrefs<String>(sharedPreferences)
         val valueSaved = "someValue"
         repository.write("key", valueSaved)
 
@@ -23,7 +24,7 @@ class SharedPreferencesTestCase {
 
     @Test
     fun shouldSaveObjectToRepository() {
-        val repository = createSharedPrefs<SimpleStructure>(getContext())
+        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences)
         val valueSaved = SimpleStructure(1)
         repository.write("key", valueSaved)
 
@@ -33,7 +34,7 @@ class SharedPreferencesTestCase {
 
     @Test
     fun shouldSaveListOfObjectsToRepository() {
-        val repository = createSharedPrefs<List<SimpleStructure>>(getContext())
+        val repository = createSharedPrefs<List<SimpleStructure>>(sharedPreferences)
         val valueSaved = listOf(SimpleStructure(1))
         repository.write("key", valueSaved)
 
@@ -41,5 +42,6 @@ class SharedPreferencesTestCase {
         Assert.assertEquals(valueSaved, valueRead)
     }
 
+    private val sharedPreferences = lazy { PreferenceManager.getDefaultSharedPreferences(getContext()) }
     private fun getContext() = InstrumentationRegistry.getInstrumentation().targetContext
 }
