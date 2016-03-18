@@ -11,7 +11,7 @@ import org.mockito.Mockito.`when` as on
 @RunWith(AndroidJUnit4::class)
 class CachedSharedPreferencesTestCase {
 
-    val repositoryMock = Mockito.mock(SharedPreferenceRepository::class.java)
+    val repositoryMock = Mockito.mock(SharedPreferenceRepository::class.java) as SharedPreferenceRepository<SimpleStructure>
     val cachingRepository = CachingSharedPreferenceRepository(repositoryMock)
 
     @Test
@@ -24,10 +24,12 @@ class CachedSharedPreferencesTestCase {
 
     @Test
     fun twoCallsShouldReturnSameObject() {
-        val any = Any()
-        on(repositoryMock.read("key")).thenReturn(any)
+        val value = SimpleStructure(0)
+        on(repositoryMock.read("key")).thenReturn(value)
 
-        Assert.assertSame(any, cachingRepository.read("key"))
-        Assert.assertSame(any, cachingRepository.read("key"))
+        Assert.assertSame(value, cachingRepository.read("key"))
+        Assert.assertSame(value, cachingRepository.read("key"))
     }
+
+    data class SimpleStructure(val value: Int)
 }
