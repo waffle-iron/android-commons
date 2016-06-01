@@ -80,6 +80,18 @@ if (!isCI()) {
                     email 'maciek.gorski@gmail.com'
                     url 'https://github.com/mg6maciej'
                 }
+                developer {
+                    name 'Karol Kowalski'
+                    id 'ordon1313'
+                    email 'ordon1313@gmail.com'
+                    url 'https://github.com/OrdonTeam'
+                }
+                developer {
+                    name 'Kasper Kondzielski'
+                    id 'kghost0'
+                    email 'kghost0@gmail.com'
+                    url 'https://github.com/ghostbuster91'
+                }
             }
 
             licenses {
