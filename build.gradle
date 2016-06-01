@@ -42,3 +42,7 @@ int commonMinSdkVersion() {
 String commonBuildToolsVersion() {
     return '23.0.2'
 }
+
+boolean isCI() {
+    return "true" == System.env.CI
+}
