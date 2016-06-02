@@ -19,7 +19,9 @@ android {
         targetSdkVersion commonTargetSdkVersion()
         versionCode commonVersionCode()
         versionName commonVersionName()
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    lintOptions {
+        disable 'InvalidPackage'
     }
 }
 
