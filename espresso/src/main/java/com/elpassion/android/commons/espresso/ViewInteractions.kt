@@ -1,4 +1,4 @@
-package pl.elpassion.android.commons.espresso
+package com.elpassion.android.commons.espresso
 
 import android.support.annotation.IdRes
 import android.support.annotation.StringRes
