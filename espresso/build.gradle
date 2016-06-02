@@ -38,3 +38,5 @@ dependencies {
         exclude group: 'com.android.support'
     }
 }
+
+apply from: '../gradle/upload-archives.gradle'

@@ -27,3 +27,5 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     androidTestCompile 'com.android.support.test:runner:0.4.1'
 }
+
+apply from: '../gradle/upload-archives.gradle'
