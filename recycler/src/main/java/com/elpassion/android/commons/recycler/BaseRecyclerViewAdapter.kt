@@ -1,4 +1,4 @@
-package com.elpassion.android.recycler
+package com.elpassion.android.commons.recycler
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

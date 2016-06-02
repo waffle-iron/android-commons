@@ -1,4 +1,4 @@
-package com.elpassion.android.parcelable
+package com.elpassion.android.commons.parcelable
 
 import android.os.Parcel
 import java.util.*
@@ -7,7 +7,7 @@ fun Parcel.readBoolean() = readInt() != 0
 
 fun Parcel.writeBoolean(value: Boolean) = writeInt(if (value) 1 else 0)
 
-fun Parcel.writeStringToStringMap(map: Map<String, String?>) {
+fun Parcel.writeStringToStringMap(map: Map<String, String>) {
     writeInt(map.size)
     map.keys.forEach {
         writeString(it)

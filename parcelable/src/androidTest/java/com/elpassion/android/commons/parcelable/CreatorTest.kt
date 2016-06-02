@@ -1,8 +1,9 @@
-package com.elpassion.android.parcelable
+package com.elpassion.android.commons.parcelable
 
 import android.os.Parcel
 import android.os.Parcelable
-import org.junit.Assert.*
+import org.junit.Assert.assertArrayEquals
+import org.junit.Assert.assertSame
 import org.junit.Test
 
 class CreatorTest {

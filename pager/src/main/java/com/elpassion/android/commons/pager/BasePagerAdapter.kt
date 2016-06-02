@@ -1,4 +1,4 @@
-package com.elpassion.android.pager
+package com.elpassion.android.commons.pager
 
 import android.support.v4.view.PagerAdapter
 import android.view.LayoutInflater

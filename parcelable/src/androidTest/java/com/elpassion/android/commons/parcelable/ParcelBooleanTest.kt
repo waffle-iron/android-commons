@@ -1,4 +1,4 @@
-package com.elpassion.android.parcelable
+package com.elpassion.android.commons.parcelable
 
 import android.os.Parcel
 import org.junit.Assert.assertEquals

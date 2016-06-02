@@ -1,4 +1,3 @@
-<manifest package="com.elpassion.android.pager">
-
+<manifest package="com.elpassion.android.commons.pager">
     <application />
 </manifest>

@@ -1,4 +1,4 @@
-package com.elpassion.android.sharedpreferences
+package com.elpassion.android.commons.sharedpreferences
 
 import android.content.SharedPreferences
 import com.google.gson.Gson

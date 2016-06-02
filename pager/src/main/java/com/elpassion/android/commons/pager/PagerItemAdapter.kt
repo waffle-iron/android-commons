@@ -1,4 +1,4 @@
-package com.elpassion.android.pager
+package com.elpassion.android.commons.pager
 
 import android.view.View
 
