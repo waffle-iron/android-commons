@@ -1,4 +1,4 @@
-package com.elpassion.android.sharedpreferences
+package com.elpassion.android.commons.sharedpreferences
 
 import android.support.test.runner.AndroidJUnit4
 import org.junit.Assert.assertSame

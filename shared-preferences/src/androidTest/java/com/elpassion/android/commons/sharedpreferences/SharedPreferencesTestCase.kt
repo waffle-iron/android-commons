@@ -1,4 +1,4 @@
-package com.elpassion.android.sharedpreferences
+package com.elpassion.android.commons.sharedpreferences
 
 import android.preference.PreferenceManager
 import android.support.test.InstrumentationRegistry
