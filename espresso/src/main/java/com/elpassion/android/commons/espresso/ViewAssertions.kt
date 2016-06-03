@@ -5,9 +5,8 @@ import android.support.test.espresso.ViewInteraction
 import android.support.test.espresso.assertion.ViewAssertions
 import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.matcher.ViewMatchers
+import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.espresso.matcher.ViewMatchers.Visibility.GONE
-import android.support.test.espresso.matcher.ViewMatchers.withEffectiveVisibility
-import android.support.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.core.IsNot.not
 
 fun ViewInteraction.isDisplayed() = check(matches(ViewMatchers.isDisplayed()))
@@ -29,3 +28,7 @@ fun ViewInteraction.isDisabled() = check(matches(not(ViewMatchers.isEnabled())))
 fun ViewInteraction.isChecked() = check(matches(ViewMatchers.isChecked()))
 
 fun ViewInteraction.isNotChecked() = check(matches(not(ViewMatchers.isChecked())))
+
+fun ViewInteraction.hasChildWithText(@StringRes textId: Int) = check(matches(hasDescendant(withText(textId))))
+
+fun ViewInteraction.doesNotHaveChildWithText(@StringRes textId: Int) = check(matches(not(hasDescendant(withText(textId)))))
