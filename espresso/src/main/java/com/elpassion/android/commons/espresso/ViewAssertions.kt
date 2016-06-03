@@ -25,3 +25,7 @@ fun ViewInteraction.hasText(text: String) = check(matches(withText(text)))
 fun ViewInteraction.isEnabled() = check(matches(ViewMatchers.isEnabled()))
 
 fun ViewInteraction.isDisabled() = check(matches(not(ViewMatchers.isEnabled())))
+
+fun ViewInteraction.isChecked() = check(matches(ViewMatchers.isChecked()))
+
+fun ViewInteraction.isNotChecked() = check(matches(not(ViewMatchers.isChecked())))
