@@ -63,6 +63,12 @@ if (!isCI()) {
                     email 'kghost0@gmail.com'
                     url 'https://github.com/ghostbuster91'
                 }
+                developer {
+                    name 'Dominik Malantowicz'
+                    id 'jozzi05'
+                    email 'dominik.malantowicz@gmail.com'
+                    url 'https://github.com/jozzi05'
+                }
             }
 
             licenses {
