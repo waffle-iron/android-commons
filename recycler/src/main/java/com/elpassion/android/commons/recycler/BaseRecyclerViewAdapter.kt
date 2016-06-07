@@ -5,9 +5,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import java.util.*
 
-open class BaseRecyclerViewAdapter(protected val adapters: MutableList<ItemAdapter<out RecyclerView.ViewHolder>>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+open class BaseRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    constructor() : this(ArrayList())
+    protected val adapters: MutableList<ItemAdapter<out RecyclerView.ViewHolder>>
+
+    constructor() {
+        adapters = ArrayList()
+    }
+
+    constructor(immutableList: List<ItemAdapter<out RecyclerView.ViewHolder>>) {
+        adapters = immutableList.toMutableList()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val adapter = adapters.first { it.viewType == viewType }
