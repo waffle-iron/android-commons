@@ -21,7 +21,5 @@ class CachingSharedPreferenceRepository<T>(private val repository: SharedPrefere
         repository.write(key, value)
     }
 
-    override fun contains(key: String): Boolean {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun contains(key: String) = cacheMap.contains(key) || repository.contains(key)
 }
