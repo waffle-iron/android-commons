@@ -3,10 +3,12 @@ package com.elpassion.android.commons.espresso
 import android.support.annotation.StringRes
 import android.support.test.espresso.ViewInteraction
 import android.support.test.espresso.assertion.ViewAssertions
-import android.support.test.espresso.assertion.ViewAssertions.*
+import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.espresso.matcher.ViewMatchers.Visibility.GONE
+import com.elpassion.android.commons.espresso.matchers.EditTextErrorMatcher
+import com.elpassion.android.commons.espresso.matchers.TextInputEditTextHintMatcher
 import com.elpassion.android.commons.espresso.recycler.recyclerViewSizeMatcher
 import org.hamcrest.core.IsNot.not
 
@@ -39,5 +41,7 @@ fun ViewInteraction.isSelected() = check(ViewAssertions.matches(ViewMatchers.isS
 fun ViewInteraction.isNotSelected() = check(ViewAssertions.matches(not(ViewMatchers.isSelected())))
 
 fun ViewInteraction.textInputEditTextHasHint(@StringRes textId: Int) = check(matches(TextInputEditTextHintMatcher(textId)))
+
+fun ViewInteraction.editTextHasError(@StringRes textId: Int) = check(matches(EditTextErrorMatcher(textId)))
 
 fun ViewInteraction.hasChildCount(count: Int) = check(matches(recyclerViewSizeMatcher(count)))
