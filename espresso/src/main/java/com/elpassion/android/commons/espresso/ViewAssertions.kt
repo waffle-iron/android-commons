@@ -34,4 +34,8 @@ fun ViewInteraction.hasChildWithText(@StringRes textId: Int) = check(matches(has
 
 fun ViewInteraction.doesNotHaveChildWithText(@StringRes textId: Int) = check(matches(not(hasDescendant(withText(textId)))))
 
+fun ViewInteraction.isSelected() = check(ViewAssertions.matches(ViewMatchers.isSelected()))
+
+fun ViewInteraction.isNotSelected() = check(ViewAssertions.matches(not(ViewMatchers.isSelected())))
+
 fun ViewInteraction.hasChildCount(count: Int) = check(matches(recyclerViewSizeMatcher(count)))
