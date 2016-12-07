@@ -38,4 +38,6 @@ fun ViewInteraction.isSelected() = check(ViewAssertions.matches(ViewMatchers.isS
 
 fun ViewInteraction.isNotSelected() = check(ViewAssertions.matches(not(ViewMatchers.isSelected())))
 
+fun ViewInteraction.textInputEditTextHasHint(@StringRes textId: Int) = check(matches(TextInputEditTextHintMatcher(textId)))
+
 fun ViewInteraction.hasChildCount(count: Int) = check(matches(recyclerViewSizeMatcher(count)))
