@@ -3,18 +3,18 @@ package com.elpassion.android.commons.recycler.components.group.impl
 import com.elpassion.android.commons.recycler.components.group.SectionedItemsStrategy
 import java.util.*
 
-class MapItemsStrategy<SectionType, ItemType>(list: Map<SectionType, List<ItemType>>) : SectionedItemsStrategy<SectionType, ItemType> {
+class MapItemsStrategy<Section, Item>(map: Map<Section, List<Item>>) : SectionedItemsStrategy<Section, Item> {
 
-    private val items: Map<SectionType, List<ItemType>> = LinkedHashMap<SectionType, List<ItemType>>(list.size).apply {
-        putAll(list.mapValues { ArrayList(it.value) })
+    private val items: Map<Section, List<Item>> = LinkedHashMap<Section, List<Item>>(map.size).apply {
+        putAll(map.mapValues { ArrayList(it.value) })
     }
 
     override fun allItems() = items.values.flatten()
 
-    override fun getSection(section: SectionType) = items[section]!!.toList()
+    override fun getSection(section: Section) = items[section]!!.toList()
 
-    override fun getRelativePosition(itemPosition: Int) = getRelativePosition(this, items, itemPosition)
+    override fun getRelativePosition(itemPosition: Int) = getRelativePosition(items, itemPosition)
 
-    override fun getSectionForItemPosition(itemPosition: Int) = getSectionForItemAdapter(allItems()[itemPosition], items)
+    override fun getSectionForItemPosition(itemPosition: Int) = getSectionForItem(allItems()[itemPosition], items)
 }
 

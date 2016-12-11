@@ -3,20 +3,20 @@ package com.elpassion.android.commons.recycler.components.group
 import com.elpassion.android.commons.recycler.components.ItemsStrategy
 
 
-interface SectionedItemsStrategy<SectionType, ItemType> : ItemsStrategy<ItemType> {
-    fun getSection(section: SectionType): List<ItemType>
+interface SectionedItemsStrategy<Section, Item> : ItemsStrategy<Item> {
+    fun getSection(section: Section): List<Item>
 
     fun getRelativePosition(itemPosition: Int): Int
 
-    fun getSectionForItemPosition(itemPosition: Int): SectionType
+    fun getSectionForItemPosition(itemPosition: Int): Section
 }
 
-interface MutableSectionedItemsStrategy<SectionType, ItemType> : SectionedItemsStrategy<SectionType, ItemType> {
-    fun addAll(section: SectionType, from: List<ItemType>)
+interface MutableSectionedItemsStrategy<Section, Item> : SectionedItemsStrategy<Section, Item> {
+    fun addAll(section: Section, from: List<Item>)
 
-    fun add(section: SectionType, item: ItemType)
+    fun add(section: Section, item: Item)
 
     fun clear()
 
-    fun set(section: SectionType, from: List<ItemType>)
+    fun set(section: Section, from: List<Item>)
 }

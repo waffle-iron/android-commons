@@ -3,26 +3,26 @@ package com.elpassion.android.commons.recycler.components.group.impl
 import com.elpassion.android.commons.recycler.components.group.MutableSectionedItemsStrategy
 import java.util.*
 
-class MutableMapItemsStrategy<SectionType, ItemType> : MutableSectionedItemsStrategy<SectionType, ItemType> {
+class MutableMapItemsStrategy<Section, Item> : MutableSectionedItemsStrategy<Section, Item> {
 
-    private val items: MutableMap<SectionType, MutableList<ItemType>>
+    private val items: MutableMap<Section, MutableList<Item>>
 
     constructor() {
         items = mutableMapOf()
     }
 
-    constructor(list: Map<SectionType, List<ItemType>>) {
-        items = LinkedHashMap<SectionType, MutableList<ItemType>>(list.size).apply {
+    constructor(list: Map<Section, List<Item>>) {
+        items = LinkedHashMap<Section, MutableList<Item>>(list.size).apply {
             putAll(list.mapValues { it.value.toMutableList() })
         }
     }
 
 
-    override fun addAll(section: SectionType, from: List<ItemType>) {
+    override fun addAll(section: Section, from: List<Item>) {
         items[section]!!.addAll(from)
     }
 
-    override fun add(section: SectionType, item: ItemType) {
+    override fun add(section: Section, item: Item) {
         items[section]!!.add(item)
     }
 
@@ -30,16 +30,16 @@ class MutableMapItemsStrategy<SectionType, ItemType> : MutableSectionedItemsStra
         items.clear()
     }
 
-    override fun set(section: SectionType, from: List<ItemType>) {
+    override fun set(section: Section, from: List<Item>) {
         items.put(section, from.toMutableList())
     }
 
     override fun allItems() = items.values.flatten()
 
-    override fun getSection(section: SectionType) = items[section]!!.toList()
+    override fun getSection(section: Section) = items[section]!!.toList()
 
-    override fun getRelativePosition(itemPosition: Int) = getRelativePosition(this, items, itemPosition)
+    override fun getRelativePosition(itemPosition: Int) = getRelativePosition(items, itemPosition)
 
-    override fun getSectionForItemPosition(itemPosition: Int) = getSectionForItemAdapter(allItems()[itemPosition], items)
+    override fun getSectionForItemPosition(itemPosition: Int) = getSectionForItem(allItems()[itemPosition], items)
 
 }

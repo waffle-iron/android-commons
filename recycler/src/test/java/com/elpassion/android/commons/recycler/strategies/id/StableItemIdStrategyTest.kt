@@ -2,9 +2,9 @@ package com.elpassion.android.commons.recycler.strategies.id
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import com.elpassion.android.commons.recycler.components.stable.StableItemAdapter
-import com.elpassion.android.commons.recycler.components.stable.StableItemIdStrategy
 import com.elpassion.android.commons.recycler.components.base.ListItemsStrategy
+import com.elpassion.android.commons.recycler.components.stable.StableItemAdapter
+import com.elpassion.android.commons.recycler.components.stable.createStableItemIdStrategy
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.mockito.Mockito
@@ -14,12 +14,12 @@ class StableItemIdStrategyTest {
 
     @Test
     fun shouldReturnItemIdFromItemStrategyBasedOnPosition() {
-        val strategy = StableItemIdStrategy(ListItemsStrategy(listOf(
+        val strategy = createStableItemIdStrategy(ListItemsStrategy(listOf(
                 createItemAdapter(stableId = 100),
                 createItemAdapter(stableId = 101),
                 createItemAdapter(stableId = 102))))
 
-        val itemId = strategy.getItemId(1)
+        val itemId = strategy(1)
         assertEquals(101, itemId)
     }
 
