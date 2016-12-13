@@ -24,6 +24,13 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+task updateReadme {
+    ext.readmeFile = new File('README.md')
+    ext.versionPattern = java.util.regex.Pattern.compile("\\d+.\\d+.\\d+")
+    ext.readmeText = versionPattern.matcher(readmeFile.text).replaceAll(commonVersionName())
+    readmeFile.text = readmeText
+}
+
 int commonVersionCode() {
     return 1
 }
