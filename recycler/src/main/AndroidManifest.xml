@@ -1,4 +1,3 @@
-<manifest package="com.elpassion.android.recycler">
-
+<manifest package="com.elpassion.android.commons.recycler">
     <application />
 </manifest>

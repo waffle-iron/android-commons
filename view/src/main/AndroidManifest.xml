@@ -1,4 +1,3 @@
-<manifest package="com.elpassion.android.view">
-
+<manifest package="com.elpassion.android.commons.view">
     <application />
 </manifest>

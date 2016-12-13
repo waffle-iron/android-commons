@@ -1,4 +1,3 @@
-<manifest package="com.elpassion.android.parcelable">
-
+<manifest package="com.elpassion.android.commons.parcelable">
     <application />
 </manifest>

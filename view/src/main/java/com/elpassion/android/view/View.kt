@@ -3,9 +3,9 @@ package com.elpassion.android.view
 import android.view.View
 
 fun View.show() {
-    this.visibility = View.VISIBLE
+    visibility = View.VISIBLE
 }
 
 fun View.hide() {
-    this.visibility = View.GONE
+    visibility = View.GONE
 }
