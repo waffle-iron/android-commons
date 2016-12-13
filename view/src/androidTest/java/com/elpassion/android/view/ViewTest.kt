@@ -3,7 +3,6 @@ package com.elpassion.android.view
 import android.app.Application
 import android.test.ApplicationTestCase
 import android.view.View
-import junit.framework.Assert
 
 class ViewTest : ApplicationTestCase<Application>(Application::class.java) {
 
@@ -46,6 +45,6 @@ class ViewTest : ApplicationTestCase<Application>(Application::class.java) {
     fun testShouldDisableEnabledView() {
         val view = View(context)
         view.disable()
-        Assert.assertFalse(view.isEnabled)
+        assertFalse(view.isEnabled)
     }
 }
