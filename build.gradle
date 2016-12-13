@@ -7,7 +7,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.android.tools.build:gradle:2.2.3'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.13.0'
     }
 }
@@ -24,12 +24,19 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+task updateReadme {
+    ext.readmeFile = new File('README.md')
+    ext.versionPattern = java.util.regex.Pattern.compile("\\d+.\\d+.\\d+")
+    ext.readmeText = versionPattern.matcher(readmeFile.text).replaceAll(commonVersionName())
+    readmeFile.text = readmeText
+}
+
 int commonVersionCode() {
     return 1
 }
 
 String commonVersionName() {
-    return '0.0.9'
+    return '0.0.10'
 }
 
 int commonCompileSdkVersion() {
