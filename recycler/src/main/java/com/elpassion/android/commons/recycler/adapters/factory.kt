@@ -11,7 +11,7 @@ import com.elpassion.android.commons.recycler.components.stable.StableItemAdapte
 import com.elpassion.android.commons.recycler.components.stable.createStableIdInitialization
 import com.elpassion.android.commons.recycler.components.stable.getStableItemIdentifier
 
-fun baseRecyclerViewAdapter(adapters: List<ItemAdapter<*>>) = RecyclerViewAdapterCompositor(ListItemsStrategy(adapters))
+fun recyclerViewAdapter(adapters: List<ItemAdapter<*>>) = RecyclerViewAdapterCompositor(ListItemsStrategy(adapters))
 
 fun mutableRecyclerViewAdapter(adapters: MutableList<ItemAdapter<*>> = mutableListOf()) = RecyclerViewAdapterCompositor(MutableListItemsStrategy(adapters))
 
