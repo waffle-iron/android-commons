@@ -18,6 +18,6 @@ class EditTextErrorMatcher(@StringRes private val textId: Int) : BoundedMatcher<
     }
 
     override fun describeTo(description: Description) {
-        description.appendText("has error text from string resource on TextInputLayout: " + textId)
+        description.appendText("has error text from string resource on TextInputLayout: $textId")
     }
 }

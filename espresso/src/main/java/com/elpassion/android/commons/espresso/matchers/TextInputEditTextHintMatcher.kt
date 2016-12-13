@@ -17,6 +17,6 @@ class TextInputEditTextHintMatcher(private val hintStringId: Int) : BoundedMatch
     }
 
     override fun describeTo(description: Description) {
-        description.appendText("has hint text from string resource on TextInputLayout: " + hintStringId)
+        description.appendText("has hint text from string resource on TextInputLayout: $hintStringId")
     }
 }
