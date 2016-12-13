@@ -8,7 +8,7 @@ import com.elpassion.android.commons.recycler.components.base.ItemAdapter
 
 class RecyclerViewAdapterCompositor<T : ItemAdapter<out RecyclerView.ViewHolder>>(
         private val itemsStrategy: ItemsStrategy<T>,
-        private val getItemIdent: (position: Int) -> Long = { 0L },
+        private val getItemIdentifier: (position: Int) -> Long = { 0L },
         init: (RecyclerViewAdapterCompositor<T>.() -> Unit) = {}) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     init {
@@ -28,7 +28,7 @@ class RecyclerViewAdapterCompositor<T : ItemAdapter<out RecyclerView.ViewHolder>
 
     override fun getItemViewType(position: Int) = allItems()[position].viewType
 
-    override fun getItemId(position: Int) = getItemIdent(position)
+    override fun getItemId(position: Int) = getItemIdentifier(position)
 
     private fun allItems() = itemsStrategy.allItems()
 }

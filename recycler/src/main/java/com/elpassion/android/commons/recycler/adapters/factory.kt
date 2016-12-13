@@ -18,11 +18,11 @@ fun mutableRecyclerViewAdapter(adapters: MutableList<ItemAdapter<*>> = mutableLi
 fun stableRecyclerViewAdapter(itemsStrategy: ItemsStrategy<StableItemAdapter<out RecyclerView.ViewHolder>>) =
         RecyclerViewAdapterCompositor(
                 itemsStrategy = itemsStrategy,
-                getItemIdent = getStableItemIdentifier(itemsStrategy),
+                getItemIdentifier = getStableItemIdentifier(itemsStrategy),
                 init = createStableIdInitialization())
 
 fun <Section, Item : StableItemAdapter<out RecyclerView.ViewHolder>> stableSectionedRecyclerViewAdapter(itemsStrategy: SectionedItemsStrategy<Section, Item>) =
         RecyclerViewAdapterCompositor(
                 itemsStrategy = itemsStrategy,
-                getItemIdent = getStableItemIdentifier(itemsStrategy),
+                getItemIdentifier = getStableItemIdentifier(itemsStrategy),
                 init = createStableIdInitialization())
