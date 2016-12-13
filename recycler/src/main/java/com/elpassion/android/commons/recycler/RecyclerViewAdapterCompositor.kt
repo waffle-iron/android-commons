@@ -6,9 +6,10 @@ import android.view.ViewGroup
 import com.elpassion.android.commons.recycler.components.ItemsStrategy
 import com.elpassion.android.commons.recycler.components.base.ItemAdapter
 
-class RecyclerViewAdapterCompositor<T : ItemAdapter<out RecyclerView.ViewHolder>>(private val itemsStrategy: ItemsStrategy<T>,
-                                                                                  private val getItemIdent: (position: Int) -> Long = { 0L },
-                                                                                  init: (RecyclerViewAdapterCompositor<T>.() -> Unit) = {}) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecyclerViewAdapterCompositor<T : ItemAdapter<out RecyclerView.ViewHolder>>(
+        private val itemsStrategy: ItemsStrategy<T>,
+        private val getItemIdent: (position: Int) -> Long = { 0L },
+        init: (RecyclerViewAdapterCompositor<T>.() -> Unit) = {}) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     init {
         init()
