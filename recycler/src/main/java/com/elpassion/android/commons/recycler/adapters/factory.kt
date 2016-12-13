@@ -9,7 +9,7 @@ import com.elpassion.android.commons.recycler.components.base.MutableListItemsSt
 import com.elpassion.android.commons.recycler.components.group.SectionedItemsStrategy
 import com.elpassion.android.commons.recycler.components.stable.StableItemAdapter
 import com.elpassion.android.commons.recycler.components.stable.createStableIdInitialization
-import com.elpassion.android.commons.recycler.components.stable.getStableItemIdent
+import com.elpassion.android.commons.recycler.components.stable.getStableItemIdentifier
 
 fun baseRecyclerViewAdapter(adapters: List<ItemAdapter<*>>) = RecyclerViewAdapterCompositor(ListItemsStrategy(adapters))
 
@@ -18,11 +18,11 @@ fun mutableRecyclerViewAdapter(adapters: MutableList<ItemAdapter<*>> = mutableLi
 fun stableRecyclerViewAdapter(itemsStrategy: ItemsStrategy<StableItemAdapter<out RecyclerView.ViewHolder>>) =
         RecyclerViewAdapterCompositor(
                 itemsStrategy = itemsStrategy,
-                getItemIdent = getStableItemIdent(itemsStrategy),
+                getItemIdent = getStableItemIdentifier(itemsStrategy),
                 init = createStableIdInitialization())
 
 fun <Section, Item : StableItemAdapter<out RecyclerView.ViewHolder>> stableSectionedRecyclerViewAdapter(itemsStrategy: SectionedItemsStrategy<Section, Item>) =
         RecyclerViewAdapterCompositor(
                 itemsStrategy = itemsStrategy,
-                getItemIdent = getStableItemIdent(itemsStrategy),
+                getItemIdent = getStableItemIdentifier(itemsStrategy),
                 init = createStableIdInitialization())
