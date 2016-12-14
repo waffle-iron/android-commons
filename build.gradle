@@ -25,10 +25,12 @@ task clean(type: Delete) {
 }
 
 task updateReadme {
-    def readmeFile = new File('README.md')
-    def versionPattern = java.util.regex.Pattern.compile("\\d+.\\d+.\\d+")
-    def readmeText = versionPattern.matcher(readmeFile.text).replaceAll(commonVersionName())
-    readmeFile.text = readmeText
+    doLast{
+        def readmeFile = new File('README.md')
+        def versionPattern = java.util.regex.Pattern.compile("\\d+.\\d+.\\d+")
+        def readmeText = versionPattern.matcher(readmeFile.text).replaceAll(commonVersionName())
+        readmeFile.text = readmeText
+    }
 }
 
 int commonVersionCode() {
