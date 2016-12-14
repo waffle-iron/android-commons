@@ -1,7 +1,7 @@
 package com.elpassion.android.commons.recycler_example.group
 
 import android.support.v7.app.AppCompatActivity
-import com.elpassion.android.commons.recycler.RecyclerViewAdapterCompositor
+import com.elpassion.android.commons.recycler.RecyclerViewCompositeAdapter
 import com.elpassion.android.commons.recycler.components.group.impl.CachedMapItemsStrategy
 import com.elpassion.android.commons.recycler.components.group.impl.MutableMapItemsStrategy
 import com.elpassion.android.commons.recycler_example.R
@@ -20,7 +20,7 @@ class MutableRecyclerWithSectionsActivity : AppCompatActivity() {
         val users = createManyUsers()
         val adapters = users.groupBy(User::organization).mapValues { it.value.map(::SimpleUserItemAdapter) }
         val itemsStrategy = CachedMapItemsStrategy(MutableMapItemsStrategy(adapters))
-        val adapterCompositor = RecyclerViewAdapterCompositor(itemsStrategy = itemsStrategy)
+        val adapterCompositor = RecyclerViewCompositeAdapter(itemsStrategy = itemsStrategy)
         recyclerView.adapter = adapterCompositor
 
         clearSectionButton.setOnClickListener {

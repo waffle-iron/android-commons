@@ -1,7 +1,7 @@
 package com.elpassion.android.commons.recycler.components.stable
 
 import android.support.v7.widget.RecyclerView
-import com.elpassion.android.commons.recycler.RecyclerViewAdapterCompositor
+import com.elpassion.android.commons.recycler.RecyclerViewCompositeAdapter
 import com.elpassion.android.commons.recycler.components.ItemsStrategy
 
 fun <T : StableItemAdapter<out RecyclerView.ViewHolder>> getStableItemIdentifier(itemsStrategy: ItemsStrategy<T>) =
@@ -10,6 +10,6 @@ fun <T : StableItemAdapter<out RecyclerView.ViewHolder>> getStableItemIdentifier
         }
 
 fun <T : StableItemAdapter<out RecyclerView.ViewHolder>> createStableIdInitialization() =
-        { compositor: RecyclerViewAdapterCompositor<T> ->
-            compositor.setHasStableIds(true)
+        { adapter: RecyclerViewCompositeAdapter<T> ->
+            adapter.setHasStableIds(true)
         }
