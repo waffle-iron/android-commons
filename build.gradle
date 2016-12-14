@@ -24,8 +24,21 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+task updateVersionName {
+    doLast {
+        def gradlePropertiesFile = new File('gradle.properties')
+        def regex = '^\\s*COMMON_VERSION_NAME=(\\d+.\\d+.\\d+)'
+        def versionPattern = java.util.regex.Pattern.compile(regex, java.util.regex.Pattern.MULTILINE)
+        def matcher = versionPattern.matcher(gradlePropertiesFile.text)
+        if (matcher.find()) {
+            def gradlePropertiesText = gradlePropertiesFile.text.replaceFirst(matcher.group(1), versionName)
+            gradlePropertiesFile.text = gradlePropertiesText
+        }
+    }
+}
+
 task updateReadme {
-    doLast{
+    doLast {
         def readmeFile = new File('README.md')
         def versionPattern = java.util.regex.Pattern.compile("\\d+.\\d+.\\d+")
         def readmeText = versionPattern.matcher(readmeFile.text).replaceAll(commonVersionName())
@@ -38,7 +51,7 @@ int commonVersionCode() {
 }
 
 String commonVersionName() {
-    return '0.0.10'
+    return COMMON_VERSION_NAME
 }
 
 int commonCompileSdkVersion() {
