@@ -25,9 +25,9 @@ task clean(type: Delete) {
 }
 
 task updateReadme {
-    ext.readmeFile = new File('README.md')
-    ext.versionPattern = java.util.regex.Pattern.compile("\\d+.\\d+.\\d+")
-    ext.readmeText = versionPattern.matcher(readmeFile.text).replaceAll(commonVersionName())
+    def readmeFile = new File('README.md')
+    def versionPattern = java.util.regex.Pattern.compile("\\d+.\\d+.\\d+")
+    def readmeText = versionPattern.matcher(readmeFile.text).replaceAll(commonVersionName())
     readmeFile.text = readmeText
 }
 
