@@ -1,3 +1,5 @@
+import java.util.regex.Pattern
+
 buildscript {
     ext.support_version = '23.2.1'
     ext.kotlin_version = '1.0.5-2'
@@ -28,7 +30,7 @@ task updateVersionName {
     doLast {
         def gradlePropertiesFile = new File('gradle.properties')
         def regex = '^\\s*COMMON_VERSION_NAME=(\\d+.\\d+.\\d+)'
-        def versionPattern = java.util.regex.Pattern.compile(regex, java.util.regex.Pattern.MULTILINE)
+        def versionPattern = Pattern.compile(regex, Pattern.MULTILINE)
         def matcher = versionPattern.matcher(gradlePropertiesFile.text)
         if (matcher.find()) {
             def gradlePropertiesText = gradlePropertiesFile.text.replaceFirst(matcher.group(1), versionName)
@@ -40,7 +42,7 @@ task updateVersionName {
 task updateReadme {
     doLast {
         def readmeFile = new File('README.md')
-        def versionPattern = java.util.regex.Pattern.compile("\\d+.\\d+.\\d+")
+        def versionPattern = Pattern.compile("\\d+.\\d+.\\d+")
         def readmeText = versionPattern.matcher(readmeFile.text).replaceAll(commonVersionName())
         readmeFile.text = readmeText
     }
