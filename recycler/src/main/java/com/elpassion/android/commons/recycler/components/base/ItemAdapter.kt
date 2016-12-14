@@ -1,4 +1,4 @@
-package com.elpassion.android.commons.recycler
+package com.elpassion.android.commons.recycler.components.base
 
 import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
