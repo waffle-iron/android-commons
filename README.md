@@ -13,7 +13,7 @@ compile "com.elpassion.android.commons:espresso:0.0.10"
 
 Pager commons:
 ```groovy
-compile "com.elpassion.android.commons:espresso:0.0.10"
+compile "com.elpassion.android.commons:pager:0.0.10"
 ```
 
 Parcelable commons:
