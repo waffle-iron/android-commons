@@ -1,5 +1,7 @@
 package com.elpassion.android.commons.recycler_example.group
 
+import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import com.elpassion.android.commons.recycler.RecyclerViewCompositeAdapter
 import com.elpassion.android.commons.recycler.components.group.impl.CachedMapItemsStrategy
@@ -37,6 +39,14 @@ class MutableRecyclerWithSectionsActivity : AppCompatActivity() {
             restoreSectionButton.isEnabled = false
             clearSectionButton.isEnabled = true
         }
+    }
+
+    companion object {
+        fun start(context: Context) {
+            context.startActivity(Intent(context, MutableRecyclerWithSectionsActivity::class.java))
+        }
+
+        const val DESCRIPTION = "Mutable recycler with sections"
     }
 }
 

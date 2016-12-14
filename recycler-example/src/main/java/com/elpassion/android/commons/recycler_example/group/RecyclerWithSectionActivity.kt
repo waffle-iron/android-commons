@@ -1,5 +1,7 @@
 package com.elpassion.android.commons.recycler_example.group
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -24,5 +26,13 @@ class RecyclerWithSectionActivity : AppCompatActivity() {
         recyclerView.adapter = RecyclerViewCompositeAdapter(itemsStrategy = itemsStrategy)
 
         Log.i(RecyclerWithSectionActivity::class.java.name, itemsStrategy.getSection("A").size.toString())
+    }
+
+    companion object {
+        fun start(context: Context) {
+            context.startActivity(Intent(context, RecyclerWithSectionActivity::class.java))
+        }
+
+        const val DESCRIPTION = "Recycler with sections"
     }
 }

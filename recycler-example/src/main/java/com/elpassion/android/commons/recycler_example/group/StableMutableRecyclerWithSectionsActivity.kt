@@ -1,5 +1,7 @@
 package com.elpassion.android.commons.recycler_example.group
 
+import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.elpassion.android.commons.recycler.adapters.stableSectionedRecyclerViewAdapter
@@ -36,5 +38,13 @@ class StableMutableRecyclerWithSectionsActivity : AppCompatActivity() {
             restoreSectionButton.isEnabled = false
             clearSectionButton.isEnabled = true
         }
+    }
+
+    companion object {
+        fun start(context: Context) {
+            context.startActivity(Intent(context, StableMutableRecyclerWithSectionsActivity::class.java))
+        }
+
+        const val DESCRIPTION = "Stable mutable recycler with sections"
     }
 }
