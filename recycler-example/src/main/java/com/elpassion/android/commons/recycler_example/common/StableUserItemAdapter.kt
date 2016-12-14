@@ -7,10 +7,7 @@ import com.elpassion.android.commons.recycler_example.R
 import kotlinx.android.synthetic.main.github_item.view.*
 
 class StableUserItemAdapter(private val user: User) : StableItemAdapter<StableUserItemAdapter.VH>(user.id, R.layout.github_item) {
-    override fun onCreateViewHolder(itemView: View): VH {
-        itemView.setBackgroundColor((user.userName + user.organization).hashCode())
-        return VH(itemView)
-    }
+    override fun onCreateViewHolder(itemView: View) = VH(itemView)
 
     override fun onBindViewHolder(holder: VH) {
         with(holder.itemView) {
