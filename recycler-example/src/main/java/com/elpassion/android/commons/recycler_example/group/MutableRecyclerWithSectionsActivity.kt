@@ -5,10 +5,7 @@ import com.elpassion.android.commons.recycler.RecyclerViewCompositeAdapter
 import com.elpassion.android.commons.recycler.components.group.impl.CachedMapItemsStrategy
 import com.elpassion.android.commons.recycler.components.group.impl.MutableMapItemsStrategy
 import com.elpassion.android.commons.recycler_example.R
-import com.elpassion.android.commons.recycler_example.common.SimpleUserItemAdapter
-import com.elpassion.android.commons.recycler_example.common.User
-import com.elpassion.android.commons.recycler_example.common.createManyUsers
-import com.elpassion.android.commons.recycler_example.common.createUsersWithASection
+import com.elpassion.android.commons.recycler_example.common.*
 import kotlinx.android.synthetic.main.recycler_view_with_action.*
 
 class MutableRecyclerWithSectionsActivity : AppCompatActivity() {
@@ -18,7 +15,12 @@ class MutableRecyclerWithSectionsActivity : AppCompatActivity() {
         setContentView(R.layout.recycler_view_with_action)
         recyclerView.layoutManager = android.support.v7.widget.LinearLayoutManager(this)
         val users = createManyUsers()
-        val adapters = users.groupBy(User::organization).mapValues { it.value.map(::SimpleUserItemAdapter) }
+        val adapters = users.groupBy(User::organization).mapValues {
+            it.value.map { user ->
+                if (user.organization == "A") SimpleUserItemAdapter(user)
+                else OtherSimpleUserItemAdapter(user)
+            }
+        }
         val itemsStrategy = CachedMapItemsStrategy(MutableMapItemsStrategy(adapters))
         val adapterCompositor = RecyclerViewCompositeAdapter(itemsStrategy = itemsStrategy)
         recyclerView.adapter = adapterCompositor
