@@ -7,4 +7,6 @@ fun ViewInteraction.click() = perform(ViewActions.click())
 
 fun ViewInteraction.typeText(text: String) = perform(ViewActions.typeText(text))
 
+fun ViewInteraction.replaceText(text: String) = perform(ViewActions.replaceText(text))
+
 fun ViewInteraction.pressImeActionButton() = perform(ViewActions.pressImeActionButton())
