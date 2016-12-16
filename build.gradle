@@ -1,3 +1,5 @@
+import java.util.regex.Pattern
+
 buildscript {
     ext.support_version = '23.2.1'
     ext.kotlin_version = '1.0.5-2'
@@ -24,11 +26,26 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+task updateVersionName {
+    doLast {
+        def gradlePropertiesFile = new File('gradle.properties')
+        def matcher = Pattern.compile('COMMON_VERSION_NAME=(\\d+.\\d+.\\d+)').matcher(gradlePropertiesFile.text)
+        if (matcher.find()) {
+            def gradlePropertiesText = new StringBuilder(gradlePropertiesFile.text).replace(matcher.start(1), matcher.end(1), versionName)
+            gradlePropertiesFile.text = gradlePropertiesText
+        }
+    }
+}
+
 task updateReadme {
-    ext.readmeFile = new File('README.md')
-    ext.versionPattern = java.util.regex.Pattern.compile("\\d+.\\d+.\\d+")
-    ext.readmeText = versionPattern.matcher(readmeFile.text).replaceAll(commonVersionName())
-    readmeFile.text = readmeText
+    doLast {
+        def readmeFile = new File('README.md')
+        def matcher = Pattern.compile("com.elpassion.android.commons:\\w+-?\\w+:(\\d+.\\d+.\\d+)").matcher(readmeFile.text)
+        while (matcher.find()) {
+            def readmeText = new StringBuilder(readmeFile.text).replace(matcher.start(1), matcher.end(1), "${commonVersionName()}")
+            readmeFile.text = readmeText
+        }
+    }
 }
 
 int commonVersionCode() {
@@ -36,7 +53,7 @@ int commonVersionCode() {
 }
 
 String commonVersionName() {
-    return '0.0.10'
+    return COMMON_VERSION_NAME
 }
 
 int commonCompileSdkVersion() {
