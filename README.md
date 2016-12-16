@@ -10,35 +10,35 @@ Download
 Espresso commons:
 
 ```groovy
-compile "com.elpassion.android.commons:espresso:0.0.10"
+compile "com.elpassion.android.commons:espresso:0.0.11"
 ```
 
 Pager commons:
 
 ```groovy
-compile "com.elpassion.android.commons:pager:0.0.10"
+compile "com.elpassion.android.commons:pager:0.0.11"
 ```
 
 Parcelable commons:
 
 ```groovy
-compile "com.elpassion.android.commons:parcelable:0.0.10"
+compile "com.elpassion.android.commons:parcelable:0.0.11"
 ```
 
 Recycler commons:
 
 ```groovy
-compile "com.elpassion.android.commons:recycler:0.0.10"
+compile "com.elpassion.android.commons:recycler:0.0.11"
 ```
 
 SharedPreferences commons:
 
 ```groovy
-compile "com.elpassion.android.commons:shared-preferences:0.0.10"
+compile "com.elpassion.android.commons:shared-preferences:0.0.11"
 ```
 
 View commons:
 
 ```groovy
-compile "com.elpassion.android.commons:view:0.0.10"
+compile "com.elpassion.android.commons:view:0.0.11"
 ```
