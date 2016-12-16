@@ -1,7 +1,7 @@
 #!/bin/bash
 # USAGE: ./release.sh 1.1.1
 
-if [ $# -ne 2 ]
+if [ $# -ne 1 ]
   then
     echo "USAGE: ./release.sh 1.1.1"
    exit
