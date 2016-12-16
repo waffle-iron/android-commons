@@ -29,11 +29,9 @@ task clean(type: Delete) {
 task updateVersionName {
     doLast {
         def gradlePropertiesFile = new File('gradle.properties')
-        def regex = '^\\s*COMMON_VERSION_NAME=(\\d+.\\d+.\\d+)'
-        def versionPattern = Pattern.compile(regex, Pattern.MULTILINE)
-        def matcher = versionPattern.matcher(gradlePropertiesFile.text)
+        def matcher = Pattern.compile('COMMON_VERSION_NAME=(\\d+.\\d+.\\d+)').matcher(gradlePropertiesFile.text)
         if (matcher.find()) {
-            def gradlePropertiesText = gradlePropertiesFile.text.replaceFirst(matcher.group(1), versionName)
+            def gradlePropertiesText = new StringBuilder(gradlePropertiesFile.text).replace(matcher.start(1), matcher.end(1), versionName)
             gradlePropertiesFile.text = gradlePropertiesText
         }
     }
