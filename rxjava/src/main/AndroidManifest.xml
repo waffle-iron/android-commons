@@ -1,3 +1,1 @@
-<manifest package="com.elpassion.android.rxjava">
-    <application/>
-</manifest>
+<manifest package="com.elpassion.android.rxjava" />
