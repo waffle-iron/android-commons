@@ -8,17 +8,14 @@ import rx.Observable
 import rx.Scheduler
 import java.lang.reflect.Type
 
-class ScheduledRxJavaCallAdapterFactory(private val observeOn: Scheduler,
-                                        private val subscribeOn: Scheduler) : CallAdapter.Factory() {
-
-    private val rxJavaCallAdapter by lazy { RxJavaCallAdapterFactory.createWithScheduler(subscribeOn) }
+class ObservingRxJavaCallAdapterFactory(private val observeOn: Scheduler) : CallAdapter.Factory() {
 
     override fun get(returnType: Type, annotations: Array<out Annotation>, retrofit: Retrofit): CallAdapter<*>? {
         if (getRawType(returnType) != Observable::class.java) {
             return null
         }
         @Suppress("UNCHECKED_CAST")
-        val delegate = rxJavaCallAdapter.get(returnType, annotations, retrofit) as CallAdapter<Observable<*>>
+        val delegate = retrofit.nextCallAdapter(this, returnType, annotations) as CallAdapter<Observable<*>>
         return object : CallAdapter<Observable<*>> {
             override fun <R : Any?> adapt(call: Call<R>?) = delegate.adapt(call).observeOn(observeOn)
 
