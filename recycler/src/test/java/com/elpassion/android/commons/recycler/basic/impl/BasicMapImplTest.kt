@@ -6,8 +6,8 @@ import org.junit.Test
 class BasicMapImplTest {
 
     @Test
-    fun shouldCreateBasicMap(){
-        val basicMap = BasicMapImpl<Int, String>()
+    fun shouldCreateBasicMapFromRegularMap(){
+        val basicMap = BasicMapImpl<Int, String>(mapOf())
         assert(basicMap is BasicMap<Int, String>)
     }
 }
