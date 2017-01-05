@@ -21,4 +21,11 @@ class BasicListImplTest {
         assertEquals(basicList[1], "B")
         assertEquals(basicList[2], "ABC")
     }
+
+    @Test(expected = IndexOutOfBoundsException::class)
+    fun shouldThrowOutOfBoundsExceptionForNonExistingValue() {
+        val basicList = BasicListImpl<String>(listOf())
+
+        basicList[0]
+    }
 }
