@@ -14,6 +14,14 @@ class UtilsTest {
     }
 
     @Test
+    fun shouldCreateBasicMapWithBasicMapOf() {
+        val basicMap = basicMapOf(1 to "A", 2 to "B")
+
+        assertEquals(basicMap[1], "A")
+        assertEquals(basicMap[2], "B")
+    }
+
+    @Test
     fun shouldCreateBasicListWithAsBasicList() {
         val source = listOf("A")
         val basicList = source.asBasicList()
