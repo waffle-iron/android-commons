@@ -18,4 +18,12 @@ class BasicMapImplTest {
         assert(basicMap[2] == "B")
         assert(basicMap[-7] == "ABC")
     }
+
+    @Test
+    fun shouldReturnNullForNonExistingValues(){
+        val basicMap = BasicMapImpl<Int, String>(mapOf(1 to "A", 2 to "B", -7 to "ABC"))
+        assert(basicMap[-1] === null)
+        assert(basicMap[3] === null)
+        assert(basicMap[4] === null)
+    }
 }
