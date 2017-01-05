@@ -12,4 +12,12 @@ class UtilsTest {
 
         assertEquals(basicMap[1], "A")
     }
+
+    @Test
+    fun shouldCreateBasicListWithAsBasicList() {
+        val source = listOf("A")
+        val basicList = source.asBasicList()
+
+        assertEquals(basicList[0], "A")
+    }
 }
