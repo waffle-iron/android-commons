@@ -6,7 +6,7 @@ import org.junit.Assert.assertNull
 import org.junit.Test
 
 class BasicMutableMapImplTest {
-    
+
     @Test
     fun shouldCreateBasicMutableMapFromRegularMap() {
         val basicMutableMap = BasicMutableMapImpl<Int, String>(mutableMapOf())
@@ -69,4 +69,19 @@ class BasicMutableMapImplTest {
         assertEquals(source.size, 0)
     }
 
+    @Test
+    fun shouldClearSourceMapCorrectly() {
+        val source = mutableMapOf(1 to "First", 2 to "Second")
+        val basicMutableMap = BasicMutableMapImpl(source)
+
+        assertEquals(source[1], "First")
+        assertEquals(source[2], "Second")
+        assertEquals(source.size, 2)
+
+        basicMutableMap.clear()
+
+        assertEquals(source[1], null)
+        assertEquals(source[2], null)
+        assertEquals(source.size, 0)
+    }
 }

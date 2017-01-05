@@ -14,8 +14,5 @@ class BasicMutableMapImpl<Key, Value>(private val source: MutableMap<Key, Value>
         }
     }
 
-    override fun clear() {
-        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
+    override fun clear() = source.clear()
 }
