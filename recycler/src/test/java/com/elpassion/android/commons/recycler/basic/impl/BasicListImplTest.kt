@@ -39,4 +39,21 @@ class BasicListImplTest {
 
         basicList[3]
     }
+
+    @Test
+    fun shouldReturnValidValuesAfterSourceChange() {
+        val source = mutableListOf("A", "B", "C")
+        val basicList = BasicListImpl(source)
+
+        assertEquals(basicList[0], "A")
+        assertEquals(basicList[1], "B")
+        assertEquals(basicList[2], "C")
+
+        source[1] = "E"
+        source[2] = "P"
+
+        assertEquals(basicList[0], "A")
+        assertEquals(basicList[1], "E")
+        assertEquals(basicList[2], "P")
+    }
 }
