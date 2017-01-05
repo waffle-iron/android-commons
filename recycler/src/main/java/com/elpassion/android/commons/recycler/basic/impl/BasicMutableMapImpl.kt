@@ -7,7 +7,11 @@ class BasicMutableMapImpl<Key, Value>(private val source: MutableMap<Key, Value>
     override fun get(key: Key): Value? = source[key]
 
     override fun set(key: Key, value: Value?) {
-        source[key] = value!!
+        if (value !== null) {
+            source[key] = value
+        } else {
+            source.remove(key)
+        }
     }
 
     override fun clear() {

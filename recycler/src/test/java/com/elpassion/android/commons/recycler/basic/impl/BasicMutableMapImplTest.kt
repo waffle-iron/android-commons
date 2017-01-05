@@ -61,4 +61,12 @@ class BasicMutableMapImplTest {
         assertEquals(basicMutableMap[1], changed)
     }
 
+    @Test
+    fun shouldRemoveValueCorrectly() {
+        val source = mutableMapOf(1 to "First")
+        val basicMutableMap = BasicMutableMapImpl(source)
+        basicMutableMap[1] = null
+        assertEquals(source.size, 0)
+    }
+
 }
