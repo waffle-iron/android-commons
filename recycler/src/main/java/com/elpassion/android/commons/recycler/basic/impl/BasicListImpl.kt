@@ -6,5 +6,5 @@ class BasicListImpl<Item>(private val source: List<Item>) : BasicList<Item> {
 
     override fun get(key: Int) = source[key]
 
-    override val size: Int get() = throw NotImplementedError()
+    override val size: Int get() = source.size
 }

@@ -56,4 +56,13 @@ class BasicListImplTest {
         assertEquals(basicList[1], "E")
         assertEquals(basicList[2], "P")
     }
+
+    @Test
+    fun shouldReturnCorrectSizeWhenSourceChanges() {
+        val source = mutableListOf("A", "B", "C")
+        val basicList = BasicListImpl(source)
+        assertEquals(basicList.size, 3)
+        source.add("D")
+        assertEquals(basicList.size, 4)
+    }
 }
