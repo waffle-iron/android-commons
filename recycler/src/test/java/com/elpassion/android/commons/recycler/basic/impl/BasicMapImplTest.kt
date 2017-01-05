@@ -31,4 +31,16 @@ class BasicMapImplTest {
         assertNull(basicMap[3])
         assertNull(basicMap[4])
     }
+
+    @Test
+    fun shouldReturnValidValueAfterSourceChange() {
+        val source = mutableMapOf(1 to "G", 2 to "O")
+        val basicMap = BasicMapImpl(source)
+        assertEquals(basicMap[1], "G")
+        assertEquals(basicMap[2], "O")
+        source[1] = "E"
+        source[2] = "P"
+        assertEquals(basicMap[1], "E")
+        assertEquals(basicMap[2], "P")
+    }
 }
