@@ -9,4 +9,5 @@ fun <K, V> basicMapOf(vararg entries: Pair<K, V>) = BasicMapImpl(mapOf<K, V>(*en
 
 fun <Item> List<Item>.asBasicList(): BasicList<Item> = BasicListImpl(this)
 
+fun <Item> basicListOf(vararg items: Item) = BasicListImpl(listOf<Item>(*items))
 

@@ -28,4 +28,12 @@ class UtilsTest {
 
         assertEquals(basicList[0], "A")
     }
+
+    @Test
+    fun shouldCreateBasicListWithBasicListOf() {
+        val basicList = basicListOf("A", "B")
+
+        assertEquals(basicList[0], "A")
+        assertEquals(basicList[1], "B")
+    }
 }
