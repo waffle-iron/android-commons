@@ -28,4 +28,15 @@ class BasicListImplTest {
 
         basicList[0]
     }
+
+    @Test(expected = IndexOutOfBoundsException::class)
+    fun shouldContainCorrectValuesAndThrowForWrongPosition() {
+        val basicList = BasicListImpl(listOf("A", "B", "ABC"))
+
+        assertEquals(basicList[0], "A")
+        assertEquals(basicList[1], "B")
+        assertEquals(basicList[2], "ABC")
+
+        basicList[3]
+    }
 }
