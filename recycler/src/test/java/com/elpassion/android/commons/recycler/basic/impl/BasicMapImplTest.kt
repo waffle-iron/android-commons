@@ -43,4 +43,13 @@ class BasicMapImplTest {
         assertEquals(basicMap[1], "E")
         assertEquals(basicMap[2], "P")
     }
+
+    @Test
+    fun shouldReturnNullWhenSourceValueDeleted() {
+        val source = mutableMapOf(1 to "G")
+        val basicMap = BasicMapImpl(source)
+        assertEquals(basicMap[1], "G")
+        source.remove(1)
+        assertNull(basicMap[1])
+    }
 }
