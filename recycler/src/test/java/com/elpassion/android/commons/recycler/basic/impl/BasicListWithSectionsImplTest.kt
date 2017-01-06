@@ -101,4 +101,22 @@ class BasicListWithSectionsImplTest {
         source["A"]!!.add("AC")
         assertEquals(basicListWithSections.size, 6)
     }
+
+    @Test
+    fun shouldReturnCorrectValuesViaSectionsProperty() {
+        val basicListWithSections = BasicListWithSectionsImpl(mapOf(
+                "A" to listOf("AA", "AB", "AC"),
+                "B" to listOf("BA", "BB", "BC"),
+                "C" to listOf("CA", "CB")
+        ))
+
+        assertEquals(basicListWithSections.sections["A"]!![0], "AA")
+        assertEquals(basicListWithSections.sections["A"]!![1], "AB")
+        assertEquals(basicListWithSections.sections["A"]!![2], "AC")
+        assertEquals(basicListWithSections.sections["B"]!![0], "BA")
+        assertEquals(basicListWithSections.sections["B"]!![1], "BB")
+        assertEquals(basicListWithSections.sections["B"]!![2], "BC")
+        assertEquals(basicListWithSections.sections["C"]!![0], "CA")
+        assertEquals(basicListWithSections.sections["C"]!![1], "CB")
+    }
 }
