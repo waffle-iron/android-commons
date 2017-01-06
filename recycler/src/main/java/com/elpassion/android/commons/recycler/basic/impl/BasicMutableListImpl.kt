@@ -16,5 +16,7 @@ class BasicMutableListImpl<Item>(private val source: MutableList<Item>) : BasicM
 
     override fun insert(index: Int, item: Item) = source.add(index, item)
 
-    override fun remove(index: Int): Unit = TODO()
+    override fun remove(index: Int) {
+        source.removeAt(index)
+    }
 }
