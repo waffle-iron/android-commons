@@ -61,24 +61,13 @@ class BasicListWithSectionsImplTest {
         assertEquals(basicListWithSections[7], "CB")
     }
 
-//    @Test(expected = IndexOutOfBoundsException::class)
-//    fun shouldThrowOutOfBoundsExceptionForNonExistingValue() {
-//        val basicListWithSections = BasicListWithSectionsImpl<String>(listOf())
-//
-//        basicListWithSections[0]
-//    }
-//
-//    @Test(expected = IndexOutOfBoundsException::class)
-//    fun shouldContainCorrectValuesAndThrowForWrongPosition() {
-//        val basicListWithSections = BasicListWithSectionsImpl(listOf("A", "B", "ABC"))
-//
-//        assertEquals(basicListWithSections[0], "A")
-//        assertEquals(basicListWithSections[1], "B")
-//        assertEquals(basicListWithSections[2], "ABC")
-//
-//        basicListWithSections[3]
-//    }
-//
+    @Test(expected = IndexOutOfBoundsException::class)
+    fun shouldThrowOutOfBoundsExceptionForNonExistingValue() {
+        val basicListWithSections = BasicListWithSectionsImpl(mapOf("A" to listOf("AA", "AB")))
+
+        basicListWithSections[2]
+    }
+
 //    @Test
 //    fun shouldReturnValidValuesAfterSourceChange() {
 //        val source = mutableListOf("A", "B", "C")
