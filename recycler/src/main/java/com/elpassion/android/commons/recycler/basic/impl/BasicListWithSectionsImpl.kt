@@ -8,7 +8,7 @@ class BasicListWithSectionsImpl<Item, Section>(private val source: Map<Section, 
 
     override val sections = basicMapOf<Section, BasicList<Item>>() // TODO
 
-    override fun get(key: Int) = TODO()
+    override fun get(key: Int) = source.iterator().next().value[key]
 
     override val size: Int get() = source.map { it.value.size }.sum()
 }
