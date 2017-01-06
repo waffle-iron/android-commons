@@ -45,10 +45,6 @@ class BasicMutableListImplTest {
         val source = mutableListOf("A", "B", "C")
         val basicMutableList = BasicMutableListImpl(source)
 
-        assertEquals(basicMutableList[0], "A")
-        assertEquals(basicMutableList[1], "B")
-        assertEquals(basicMutableList[2], "C")
-
         source[1] = "E"
         source[2] = "P"
 
@@ -80,10 +76,6 @@ class BasicMutableListImplTest {
     fun shouldReturnValidValuesAfterChange() {
         val basicMutableList = BasicMutableListImpl(mutableListOf("A", "B", "C"))
 
-        assertEquals(basicMutableList[0], "A")
-        assertEquals(basicMutableList[1], "B")
-        assertEquals(basicMutableList[2], "C")
-
         basicMutableList[1] = "E"
         basicMutableList[2] = "P"
 
@@ -95,10 +87,6 @@ class BasicMutableListImplTest {
     @Test
     fun shouldReturnValidValuesAfterInsert() {
         val basicMutableList = BasicMutableListImpl(mutableListOf("A", "B", "C"))
-
-        assertEquals(basicMutableList[0], "A")
-        assertEquals(basicMutableList[1], "B")
-        assertEquals(basicMutableList[2], "C")
 
         basicMutableList.insert(1, "E")
         basicMutableList.insert(4, "P")
