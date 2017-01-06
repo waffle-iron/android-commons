@@ -8,6 +8,8 @@ fun <K, V> Map<K, V>.asBasicMap(): BasicMap<K, V?> = BasicMapImpl(this)
 
 fun <K, V> basicMapOf(vararg pairs: Pair<K, V>) = BasicMapImpl(mapOf(*pairs))
 
+fun <K, V> MutableMap<K, V>.asBasicMutableMap(): BasicMutableMap<K, V?> = BasicMutableMapImpl(this)
+
 fun <K, V> basicMutableMapOf(vararg pairs: Pair<K, V>) = BasicMutableMapImpl(mutableMapOf(*pairs))
 
 fun <Item> List<Item>.asBasicList(): BasicList<Item> = BasicListImpl(this)

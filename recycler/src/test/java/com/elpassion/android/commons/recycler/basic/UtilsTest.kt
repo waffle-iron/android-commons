@@ -23,6 +23,18 @@ class UtilsTest {
     }
 
     @Test
+    fun shouldCreateBasicMutableMapWithAsBasicMutableMap() {
+        val source = mutableMapOf(1 to "A")
+        val basicMutableMap = source.asBasicMutableMap()
+
+        assertEquals(basicMutableMap[1], "A")
+
+        basicMutableMap[1] = "AAA"
+
+        assertEquals(basicMutableMap[1], "AAA")
+    }
+
+    @Test
     fun shouldCreateBasicMutableMapWithBasicMutableMapOf() {
         val basicMutableMap = basicMutableMapOf(1 to "A", 2 to "B")
 
