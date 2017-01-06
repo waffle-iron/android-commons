@@ -88,12 +88,17 @@ class BasicListWithSectionsImplTest {
         assertEquals(basicListWithSections[2], "ba")
     }
 
-//    @Test
-//    fun shouldReturnCorrectSizeWhenSourceChanges() {
-//        val source = mutableListOf("A", "B", "C")
-//        val basicListWithSections = BasicListWithSectionsImpl(source)
-//        assertEquals(basicListWithSections.size, 3)
-//        source.add("D")
-//        assertEquals(basicListWithSections.size, 4)
-//    }
+    @Test
+    fun shouldReturnCorrectSizeWhenSourceChanges() {
+        val source = mutableMapOf(
+                "A" to mutableListOf("AA", "AB"),
+                "B" to mutableListOf("BA")
+        )
+        val basicListWithSections = BasicListWithSectionsImpl(source)
+        assertEquals(basicListWithSections.size, 3)
+        source["D"] = mutableListOf("DA", "DB")
+        assertEquals(basicListWithSections.size, 5)
+        source["A"]!!.add("AC")
+        assertEquals(basicListWithSections.size, 6)
+    }
 }
