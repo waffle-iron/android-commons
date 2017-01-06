@@ -19,5 +19,5 @@ class BasicListWithSectionsImpl<Item, Section>(private val source: Map<Section, 
         throw IndexOutOfBoundsException()
     }
 
-    override val size: Int get() = source.map { it.value.size }.sum()
+    override val size: Int get() = source.map { entry -> entry.value.size }.sum()
 }
