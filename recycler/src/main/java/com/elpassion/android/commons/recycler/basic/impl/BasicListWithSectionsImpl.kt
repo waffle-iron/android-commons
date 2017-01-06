@@ -10,5 +10,5 @@ class BasicListWithSectionsImpl<Item, Section>(private val source: Map<Section, 
 
     override fun get(key: Int) = TODO()
 
-    override val size: Int get() = TODO()
+    override val size: Int get() = 0
 }
