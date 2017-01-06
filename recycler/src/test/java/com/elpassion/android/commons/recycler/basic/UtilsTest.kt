@@ -63,6 +63,19 @@ class UtilsTest {
     }
 
     @Test
+    fun shouldCreateBasicMutableListWithAsBasicMutableList() {
+        val source = mutableListOf("A")
+        val basicMutableList = source.asBasicMutableList()
+
+        assertEquals(basicMutableList[0], "A")
+
+        basicMutableList.insert(0, "X")
+
+        assertEquals(basicMutableList[0], "X")
+        assertEquals(basicMutableList[1], "A")
+    }
+
+    @Test
     fun shouldCreateBasicMapOfBasicListsWithAsBasicMapOfBasicLists() {
         val source = mapOf("A" to listOf("AA", "AB"), "B" to listOf("BA", "BB"))
         val basicMapOfBasicLists = source.asBasicMapOfBasicLists()
