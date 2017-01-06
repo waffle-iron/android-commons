@@ -1,6 +1,7 @@
 package com.elpassion.android.commons.recycler.basic
 
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Test
 
 class UtilsTest {
@@ -35,5 +36,17 @@ class UtilsTest {
 
         assertEquals(basicList[0], "A")
         assertEquals(basicList[1], "B")
+    }
+
+    @Test
+    fun shouldCreateBasicMapOfBasicListsWithAsBasicMapOfBasicLists() {
+        val source = mapOf("A" to listOf("AA", "AB"), "B" to listOf("BA", "BB"))
+        val basicMapOfBasicLists = source.asBasicMapOfBasicLists()
+
+        assertEquals(basicMapOfBasicLists["A"]!![0], "AA")
+        assertEquals(basicMapOfBasicLists["A"]!![1], "AB")
+        assertEquals(basicMapOfBasicLists["B"]!![0], "BA")
+        assertEquals(basicMapOfBasicLists["B"]!![1], "BB")
+        assertNull(basicMapOfBasicLists["C"])
     }
 }

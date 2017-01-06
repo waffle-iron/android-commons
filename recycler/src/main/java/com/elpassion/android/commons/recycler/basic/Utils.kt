@@ -11,3 +11,7 @@ fun <Item> List<Item>.asBasicList(): BasicList<Item> = BasicListImpl(this)
 
 fun <Item> basicListOf(vararg items: Item) = BasicListImpl(listOf<Item>(*items))
 
+fun <K, V> Map<K, List<V>>.asBasicMapOfBasicLists(): BasicMap<K, BasicList<V>?> = object : BasicMap<K, BasicList<V>?> {
+    override fun get(key: K) = this@asBasicMapOfBasicLists[key]?.asBasicList()
+}
+
