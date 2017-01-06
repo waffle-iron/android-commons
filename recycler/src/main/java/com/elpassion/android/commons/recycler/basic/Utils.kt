@@ -19,6 +19,8 @@ fun <Item> MutableList<Item>.asBasicMutableList(): BasicMutableList<Item> = Basi
 
 fun <Item> basicListOf(vararg items: Item) = BasicListImpl(listOf(*items))
 
+fun <Item> basicMutableListOf(vararg items: Item) = BasicMutableListImpl(mutableListOf(*items))
+
 fun <K, V> Map<K, List<V>>.asBasicMapOfBasicLists(): BasicMap<K, BasicList<V>?> = object : BasicMap<K, BasicList<V>?> {
     override fun get(key: K) = this@asBasicMapOfBasicLists[key]?.asBasicList()
 }
