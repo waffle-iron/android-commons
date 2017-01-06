@@ -20,6 +20,20 @@ class BasicListWithSectionsImplTest {
         assertEquals(basicListWithSections.size, 0)
     }
 
+    @Test
+    fun shouldReturnCorrectSizeForOneNotEmptySection() {
+        val basicListWithSections = BasicListWithSectionsImpl(mapOf("A" to listOf("AA", "AB")))
+
+        assertEquals(basicListWithSections.size, 2)
+    }
+
+    @Test
+    fun shouldReturnCorrectSizeForTwoNotEmptySections() {
+        val basicListWithSections = BasicListWithSectionsImpl(mapOf("A" to listOf("AA", "AB"), "B" to listOf("BA", "BB", "BC")))
+
+        assertEquals(basicListWithSections.size, 5)
+    }
+
 //    @Test
 //    fun shouldReturnCorrectValuesForGivenPositions() {
 //        val basicListWithSections = BasicListWithSectionsImpl(mapOf("A" to listOf("A", "B", "ABC")))
