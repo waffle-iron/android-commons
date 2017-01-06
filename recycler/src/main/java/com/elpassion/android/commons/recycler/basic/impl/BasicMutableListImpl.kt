@@ -10,7 +10,7 @@ class BasicMutableListImpl<Item>(private val source: MutableList<Item>) : BasicM
 
     override fun set(key: Int, value: Item): Unit = TODO()
 
-    override fun clear() = TODO()
+    override fun clear() = source.clear()
 
     override fun insert(index: Int, item: Item) = TODO()
 

@@ -65,4 +65,15 @@ class BasicMutableListImplTest {
         source.add("D")
         assertEquals(basicMutableList.size, 4)
     }
+
+    @Test
+    fun shouldClearSourceWhenClearMethodCalled() {
+        val source = mutableListOf("A", "B", "C")
+        val basicMutableList = BasicMutableListImpl(source)
+        assertEquals(basicMutableList.size, 3)
+        basicMutableList.clear()
+        assertEquals(source.size, 0)
+        assertEquals(basicMutableList.size, 0)
+
+    }
 }
