@@ -91,4 +91,23 @@ class BasicMutableListImplTest {
         assertEquals(basicMutableList[1], "E")
         assertEquals(basicMutableList[2], "P")
     }
+
+    @Test
+    fun shouldReturnValidValuesAfterInsert() {
+        val basicMutableList = BasicMutableListImpl(mutableListOf("A", "B", "C"))
+
+        assertEquals(basicMutableList[0], "A")
+        assertEquals(basicMutableList[1], "B")
+        assertEquals(basicMutableList[2], "C")
+
+        basicMutableList.insert(1, "E")
+        basicMutableList.insert(4, "P")
+
+        assertEquals(basicMutableList[0], "A")
+        assertEquals(basicMutableList[1], "E")
+        assertEquals(basicMutableList[2], "B")
+        assertEquals(basicMutableList[3], "C")
+        assertEquals(basicMutableList[4], "P")
+        assertEquals(basicMutableList.size, 5)
+    }
 }
