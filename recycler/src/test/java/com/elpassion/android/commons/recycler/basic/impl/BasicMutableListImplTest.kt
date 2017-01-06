@@ -74,6 +74,21 @@ class BasicMutableListImplTest {
         basicMutableList.clear()
         assertEquals(source.size, 0)
         assertEquals(basicMutableList.size, 0)
+    }
 
+    @Test
+    fun shouldReturnValidValuesAfterChange() {
+        val basicMutableList = BasicMutableListImpl(mutableListOf("A", "B", "C"))
+
+        assertEquals(basicMutableList[0], "A")
+        assertEquals(basicMutableList[1], "B")
+        assertEquals(basicMutableList[2], "C")
+
+        basicMutableList[1] = "E"
+        basicMutableList[2] = "P"
+
+        assertEquals(basicMutableList[0], "A")
+        assertEquals(basicMutableList[1], "E")
+        assertEquals(basicMutableList[2], "P")
     }
 }
