@@ -137,4 +137,45 @@ class BasicListWithMutableSectionsImplTest {
         assertEquals(basicListWithMutableSections.sections["C"]!![0], "CA")
         assertEquals(basicListWithMutableSections.sections["C"]!![1], "CB")
     }
+
+    @Test
+    fun shouldReturnValidValuesAfterSectionsChanges() {
+        val basicListWithMutableSections = BasicListWithMutableSectionsImpl(
+                mutableMapOf(
+                        "A" to basicMutableListOf("AA", "AB"),
+                        "B" to basicMutableListOf("BA")
+                )
+        )
+
+        assertEquals(basicListWithMutableSections[0], "AA")
+        assertEquals(basicListWithMutableSections[1], "AB")
+        assertEquals(basicListWithMutableSections[2], "BA")
+
+        basicListWithMutableSections.sections["A"]!![1] = "ab"
+        basicListWithMutableSections.sections["B"]!![0] = "ba"
+
+        assertEquals(basicListWithMutableSections[0], "AA")
+        assertEquals(basicListWithMutableSections[1], "ab")
+        assertEquals(basicListWithMutableSections[2], "ba")
+    }
+
+    @Test
+    fun shouldReturnCorrectSizeAfterSectionsChanges() {
+        val basicListWithMutableSections = BasicListWithMutableSectionsImpl(
+                mutableMapOf(
+                        "A" to basicMutableListOf("AA", "AB"),
+                        "B" to basicMutableListOf("BA")
+                )
+        )
+
+        assertEquals(basicListWithMutableSections.size, 3)
+
+        basicListWithMutableSections.sections["D"] = basicMutableListOf("DA", "DB")
+
+        assertEquals(basicListWithMutableSections.size, 5)
+
+        basicListWithMutableSections.sections["A"]!!.insert(2, "AC")
+
+        assertEquals(basicListWithMutableSections.size, 6)
+    }
 }
