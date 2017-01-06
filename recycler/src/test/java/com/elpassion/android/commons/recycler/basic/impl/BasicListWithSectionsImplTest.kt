@@ -43,6 +43,24 @@ class BasicListWithSectionsImplTest {
         assertEquals(basicListWithSections[2], "AC")
     }
 
+    @Test
+    fun shouldReturnCorrectValuesForGivenPositionsWithMoreSections() {
+        val basicListWithSections = BasicListWithSectionsImpl(mapOf(
+                "A" to listOf("AA", "AB", "AC"),
+                "B" to listOf("BA", "BB", "BC"),
+                "C" to listOf("CA", "CB")
+        ))
+
+        assertEquals(basicListWithSections[0], "AA")
+        assertEquals(basicListWithSections[1], "AB")
+        assertEquals(basicListWithSections[2], "AC")
+        assertEquals(basicListWithSections[3], "BA")
+        assertEquals(basicListWithSections[4], "BB")
+        assertEquals(basicListWithSections[5], "BC")
+        assertEquals(basicListWithSections[6], "CA")
+        assertEquals(basicListWithSections[7], "CB")
+    }
+
 //    @Test(expected = IndexOutOfBoundsException::class)
 //    fun shouldThrowOutOfBoundsExceptionForNonExistingValue() {
 //        val basicListWithSections = BasicListWithSectionsImpl<String>(listOf())

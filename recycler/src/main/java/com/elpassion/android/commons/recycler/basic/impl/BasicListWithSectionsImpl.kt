@@ -8,7 +8,17 @@ class BasicListWithSectionsImpl<Item, Section>(private val source: Map<Section, 
 
     override val sections = basicMapOf<Section, BasicList<Item>>() // TODO
 
-    override fun get(key: Int) = source.iterator().next().value[key]
+    override fun get(key: Int): Item {
+        var offset = 0
+        for (section in source.values) {
+            if (key < offset + section.size) {
+                return section[key - offset]
+            } else {
+                offset += section.size
+            }
+        }
+        throw IndexOutOfBoundsException()
+    }
 
     override val size: Int get() = source.map { it.value.size }.sum()
 }
