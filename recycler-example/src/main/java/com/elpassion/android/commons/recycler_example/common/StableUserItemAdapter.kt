@@ -11,7 +11,7 @@ class StableUserItemAdapter(private val user: User) : StableItemAdapter<StableUs
 
     override fun onBindViewHolder(holder: VH) {
         with(holder.itemView) {
-            userName.text = user.userName
+            userName.text = user.name
             organization.text = user.organization
         }
     }

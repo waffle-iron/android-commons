@@ -23,7 +23,7 @@ class BasicRecyclerWithSectionActivity : AppCompatActivity() {
         val users = createManyUsers().groupBy(User::organization).asBasicListWithSections()
         recyclerView.adapter = basicAdapterWithLayoutAndBinder(users, R.layout.github_item) { holder, user ->
             with(holder.itemView) {
-                userName.text = user.userName
+                userName.text = user.name
                 organization.text = user.organization
             }
         }

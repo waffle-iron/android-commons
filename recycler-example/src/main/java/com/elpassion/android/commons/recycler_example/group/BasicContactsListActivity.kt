@@ -33,7 +33,7 @@ class BasicContactsListActivity : AppCompatActivity() {
         contacts = BasicContactsList()
         recyclerView.adapter = basicAdapterWithLayoutAndBinder(contacts!!, R.layout.github_item) { holder, user ->
             with(holder.itemView) {
-                userName.text = user.userName
+                userName.text = user.name
                 organization.text = user.organization
             }
         }

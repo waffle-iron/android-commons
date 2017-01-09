@@ -6,7 +6,7 @@ import kotlinx.android.synthetic.main.github_item.view.*
 
 class SimpleUserViewHolder(itemView: View) : BasicViewHolder<View, User>(itemView) {
     override fun bind(item: User) {
-        itemView.userName.text = item.userName
+        itemView.userName.text = item.name
         itemView.organization.text = item.organization
     }
 }
