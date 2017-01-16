@@ -5,18 +5,16 @@ import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.times
 import com.nhaarman.mockito_kotlin.verify
 import org.junit.Test
-import rx.exceptions.OnErrorNotImplementedException
 import rx.observers.TestSubscriber
 import rx.subjects.PublishSubject
 import rx.subscriptions.CompositeSubscription
 
 class RxUtilsTest {
 
-    private val subject = PublishSubject.create<Unit>()
-
+    private val subject = PublishSubject.create<Int>()
     private val subscription = CompositeSubscription()
-
-    private val handler: (Throwable) -> Unit = mock()
+    private val subscriber = TestSubscriber<Int>()
+    private val handleException: (Exception) -> Unit = mock()
 
     @Test
     fun shouldAddSubscriptionToCompositeSubscription() {
@@ -46,44 +44,51 @@ class RxUtilsTest {
     fun shouldCatchRxError() {
 
         subject
-                .catch<IllegalArgumentException> {
-                    handler(it)
+                .catch {
+                    when(it) {
+                        is IllegalArgumentException -> handleException(it)
+                        else -> throw it
+                    }
                 }
-                .subscribe()
+                .subscribe(subscriber)
 
         val exception = IllegalArgumentException()
 
         subject.onError(exception)
 
-        verify(handler).invoke(exception)
+        verify(handleException).invoke(exception)
+        subscriber.assertNoErrors()
     }
 
-    @Test(expected = OnErrorNotImplementedException::class)
+    @Test
     fun shouldNotCatchRxError() {
 
         subject
-                .catch<IllegalStateException> {
-                    handler(it)
+                .catch {
+                    when(it) {
+                        is IllegalStateException -> handleException(it)
+                        else -> throw it
+                    }
                 }
-                .subscribe()
+                .subscribe(subscriber)
 
         subject.onError(IllegalArgumentException())
 
-        verify(handler, times(0)).invoke(any())
+        verify(handleException, times(0)).invoke(any())
+        subscriber.assertError(IllegalArgumentException::class.java)
     }
 
     @Test
     fun shouldPassItemsThrough() {
 
-        val subscriber = TestSubscriber<Any>()
-
         subject
-                .catch<IllegalArgumentException> { }
+                .catch { }
                 .subscribe(subscriber)
 
-        subject.onNext(Unit)
-        subject.onNext(Unit)
+        subject.onNext(2)
+        subject.onNext(3)
 
-        subscriber.assertValues(Unit, Unit)
+        subscriber.assertValues(2, 3)
+        subscriber.assertNoErrors()
     }
 }
