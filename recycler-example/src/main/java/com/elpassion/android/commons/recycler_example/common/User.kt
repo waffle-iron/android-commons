@@ -1,5 +1,7 @@
 package com.elpassion.android.commons.recycler_example.common
 
-data class User(val id: Long,
-                val userName: String,
-                val organization: String)
+import com.elpassion.android.commons.recycler.basic.WithStableId
+
+data class User(override val id: Long,
+                val name: String,
+                val organization: String) : WithStableId
