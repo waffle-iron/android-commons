@@ -44,7 +44,7 @@ class RxUtilsTest {
     fun shouldCatchRxError() {
 
         subject
-                .catch {
+                .catchOnError {
                     when(it) {
                         is IllegalArgumentException -> handleException(it)
                         else -> throw it
@@ -64,7 +64,7 @@ class RxUtilsTest {
     fun shouldNotCatchRxError() {
 
         subject
-                .catch {
+                .catchOnError {
                     when(it) {
                         is IllegalStateException -> handleException(it)
                         else -> throw it
@@ -82,7 +82,7 @@ class RxUtilsTest {
     fun shouldPassItemsThrough() {
 
         subject
-                .catch { }
+                .catchOnError { }
                 .subscribe(subscriber)
 
         subject.onNext(2)
