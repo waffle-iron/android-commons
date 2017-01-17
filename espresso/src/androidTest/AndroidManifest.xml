@@ -8,5 +8,6 @@
         <activity android:name="com.elpassion.android.commons.espresso.ClickTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.TypeTextTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.ReplaceTextTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.PressImeActionButtonTest$Activity" />
     </application>
 </manifest>
