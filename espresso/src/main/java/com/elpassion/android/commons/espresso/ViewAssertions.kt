@@ -34,7 +34,11 @@ fun ViewInteraction.isNotChecked() = check(matches(not(ViewMatchers.isChecked())
 
 fun ViewInteraction.hasChildWithText(@StringRes textId: Int) = check(matches(hasDescendant(withText(textId))))
 
+fun ViewInteraction.hasChildWithText(text: String) = check(matches(hasDescendant(withText(text))))
+
 fun ViewInteraction.doesNotHaveChildWithText(@StringRes textId: Int) = check(matches(not(hasDescendant(withText(textId)))))
+
+fun ViewInteraction.doesNotHaveChildWithText(text: String) = check(matches(not(hasDescendant(withText(text)))))
 
 fun ViewInteraction.isSelected() = check(ViewAssertions.matches(ViewMatchers.isSelected()))
 
