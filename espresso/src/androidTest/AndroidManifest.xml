@@ -9,5 +9,6 @@
         <activity android:name="com.elpassion.android.commons.espresso.InitIntentsRuleTest$StartingActivity" />
         <activity android:name="com.elpassion.android.commons.espresso.ClickTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.TypeTextTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.ReplaceTextTest$Activity" />
     </application>
 </manifest>
