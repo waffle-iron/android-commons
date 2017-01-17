@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.elpassion.android.commons.recycler_example">
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application>
+        <activity android:name="com.elpassion.android.commons.espresso.InitIntentsRuleTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.InitIntentsRuleTest$StartingActivity" />
+    </application>
+</manifest>
