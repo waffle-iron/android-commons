@@ -8,22 +8,30 @@ import android.widget.FrameLayout
 import org.junit.Rule
 import org.junit.Test
 
-class IsDisplayedTest {
+class VisibilityAssertionsTest {
 
     @JvmField @Rule
-    val activityRule = ActivityTestRule(IsDisplayedTest.Activity::class.java)
+    val activityRule = ActivityTestRule(Activity::class.java)
 
     @Test
     fun shouldConfirmIsDisplayedWhenVisible() {
         onId(firstId).isDisplayed()
     }
+
     @Test
     fun shouldConfirmIsNotDisplayedWhenGone() {
         onId(secondId).isNotDisplayed()
+        onId(secondId).isGone()
     }
+
     @Test
     fun shouldConfirmIsNotDisplayedWhenInvisible() {
         onId(thirdId).isNotDisplayed()
+    }
+
+    @Test
+    fun shouldConfirmDoesNotExists() {
+        onId(notExistingId).isNotDisplayed()
     }
 
     class Activity : android.app.Activity() {
@@ -50,5 +58,6 @@ class IsDisplayedTest {
         private val firstId = 123
         private val secondId = 124
         private val thirdId = 125
+        private val notExistingId = 0
     }
 }
