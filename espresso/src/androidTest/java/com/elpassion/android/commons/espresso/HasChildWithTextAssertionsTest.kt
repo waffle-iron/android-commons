@@ -22,6 +22,16 @@ class HasChildWithTextAssertionsTest {
         onId(anId).hasChildWithText(secondTextRes)
     }
 
+    @Test
+    fun shouldConfirmDoesNotHaveChildWithText() {
+        onId(anId).doesNotHaveChildWithText("not existing text")
+    }
+
+    @Test
+    fun shouldConfirmDoesNotHaveChildWithTextRes() {
+        onId(anId).doesNotHaveChildWithText(123)
+    }
+
     class Activity : android.app.Activity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
