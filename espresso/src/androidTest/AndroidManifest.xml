@@ -11,5 +11,6 @@
         <activity android:name="com.elpassion.android.commons.espresso.PressImeActionButtonTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.OnIdTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.OnTextTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.IsDisplayedTest$Activity" />
     </application>
 </manifest>
