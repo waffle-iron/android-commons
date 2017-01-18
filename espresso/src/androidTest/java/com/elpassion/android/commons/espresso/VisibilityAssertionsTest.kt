@@ -31,7 +31,7 @@ class VisibilityAssertionsTest {
 
     @Test
     fun shouldConfirmDoesNotExists() {
-        onId(notExistingId).isNotDisplayed()
+        onId(notExistingId).doesNotExist()
     }
 
     class Activity : android.app.Activity() {
