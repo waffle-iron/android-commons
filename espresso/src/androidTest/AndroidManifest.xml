@@ -16,5 +16,6 @@
         <activity android:name="com.elpassion.android.commons.espresso.EnableAssertionsTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.CheckedAssertionsTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.HasChildWithTextAssertionsTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.SelectedAssertionsTest$Activity" />
     </application>
 </manifest>
