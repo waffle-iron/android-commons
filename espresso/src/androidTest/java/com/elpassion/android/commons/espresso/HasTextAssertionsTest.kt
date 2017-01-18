@@ -14,7 +14,7 @@ class HasTextAssertionsTest {
 
     @Test
     fun shouldConfirmHasText() {
-        onId(firstId).isDisplayed()
+        onId(firstId).hasText(firstText)
     }
 
     @Test
