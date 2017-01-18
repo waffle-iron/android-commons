@@ -18,5 +18,6 @@
         <activity android:name="com.elpassion.android.commons.espresso.HasChildWithTextAssertionsTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.SelectedAssertionsTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.TextInputEditTextHasHintAssertionTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.HasChildCountAssertionTest$Activity" />
     </application>
 </manifest>
