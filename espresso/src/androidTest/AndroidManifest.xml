@@ -13,5 +13,6 @@
         <activity android:name="com.elpassion.android.commons.espresso.OnTextTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.VisibilityAssertionsTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.HasTextAssertionsTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.EnableAssertionsTest$Activity" />
     </application>
 </manifest>
