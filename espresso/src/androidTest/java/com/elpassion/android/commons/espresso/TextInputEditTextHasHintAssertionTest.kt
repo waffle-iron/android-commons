@@ -5,6 +5,7 @@ import android.support.design.widget.TextInputEditText
 import android.support.design.widget.TextInputLayout
 import android.support.test.rule.ActivityTestRule
 import android.widget.FrameLayout
+import junit.framework.AssertionFailedError
 import org.junit.Rule
 import org.junit.Test
 
@@ -16,6 +17,11 @@ class TextInputEditTextHasHintAssertionTest {
     @Test
     fun shouldConfirmTextInputEditTextHasHint() {
         onId(anId).textInputEditTextHasHint(textId)
+    }
+
+    @Test(expected = AssertionFailedError::class)
+    fun shouldFailToMatch() {
+        onId(anId).textInputEditTextHasHint(R.string.abc_search_hint)
     }
 
     class Activity : android.app.Activity() {
