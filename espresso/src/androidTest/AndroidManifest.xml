@@ -12,6 +12,7 @@
         <activity android:name="com.elpassion.android.commons.espresso.OnIdTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.OnTextTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.VisibilityAssertionsTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.ParentGoneChildVisiblityAssertionTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.HasTextAssertionsTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.EnableAssertionsTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.CheckedAssertionsTest$Activity" />
