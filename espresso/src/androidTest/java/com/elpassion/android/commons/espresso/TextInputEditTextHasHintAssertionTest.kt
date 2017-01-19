@@ -40,7 +40,7 @@ class TextInputEditTextHasHintAssertionTest {
     }
 
     companion object {
-        private val anId = 123
+        private val anId = R.id.first
         private val textId = R.string.existing
     }
 }
