@@ -12,3 +12,4 @@ fun <T> Observable<T>.catchOnError(handleOnError: (throwable: Throwable) -> Unit
             Observable.empty()
         }
 
+fun <T> Observable<T>.changes(init: T) = scan(init to init) { acc, cur -> acc.second to cur }.skip(1)
