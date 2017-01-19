@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.design.widget.TextInputEditText
 import android.support.design.widget.TextInputLayout
 import android.support.test.rule.ActivityTestRule
-import android.widget.FrameLayout
 import com.elpassion.android.commons.espresso.test.R
 import junit.framework.AssertionFailedError
 import org.junit.Rule
@@ -28,12 +27,10 @@ class TextInputEditTextHasHintAssertionTest {
     class Activity : android.app.Activity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
-            setContentView(FrameLayout(this).apply {
-                addView(TextInputLayout(this.context).apply {
-                    addView(TextInputEditText(this.context).apply {
-                        id = anId
-                        hint = context.getString(textId)
-                    })
+            setContentView(TextInputLayout(this).apply {
+                addView(TextInputEditText(this.context).apply {
+                    id = anId
+                    hint = context.getString(textId)
                 })
             })
         }
