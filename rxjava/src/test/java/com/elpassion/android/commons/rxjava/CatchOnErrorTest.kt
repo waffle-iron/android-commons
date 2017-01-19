@@ -7,38 +7,12 @@ import com.nhaarman.mockito_kotlin.verify
 import org.junit.Test
 import rx.observers.TestSubscriber
 import rx.subjects.PublishSubject
-import rx.subscriptions.CompositeSubscription
 
-class RxUtilsTest {
 
+class CatchOnErrorTest {
     private val subject = PublishSubject.create<Int>()
-    private val subscription = CompositeSubscription()
     private val subscriber = TestSubscriber<Int>()
     private val handleException: (Exception) -> Unit = mock()
-
-    @Test
-    fun shouldAddSubscriptionToCompositeSubscription() {
-
-        subject
-                .subscribe()
-                .addTo(subscription)
-
-        assert(subscription.hasSubscriptions())
-    }
-
-    @Test
-    fun shouldUnsubscribeViaCompositeSubscription() {
-
-        subject
-                .subscribe()
-                .addTo(subscription)
-
-        assert(subject.hasObservers())
-
-        subscription.clear()
-
-        assert(!subject.hasObservers())
-    }
 
     @Test
     fun shouldCatchRxError() {
