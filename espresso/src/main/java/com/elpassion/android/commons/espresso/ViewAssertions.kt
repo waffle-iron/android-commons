@@ -9,7 +9,7 @@ import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.espresso.matcher.ViewMatchers.Visibility.GONE
 import com.elpassion.android.commons.espresso.matchers.EditTextErrorMatcher
 import com.elpassion.android.commons.espresso.matchers.TextInputEditTextHintMatcher
-import com.elpassion.android.commons.espresso.recycler.recyclerViewSizeMatcher
+import com.elpassion.android.commons.espresso.recycler.containerHasChildCount
 import org.hamcrest.core.IsNot.not
 
 fun ViewInteraction.isDisplayed(): ViewInteraction = check(matches(ViewMatchers.isDisplayed()))
@@ -48,4 +48,4 @@ fun ViewInteraction.textInputEditTextHasHint(@StringRes textId: Int): ViewIntera
 
 fun ViewInteraction.editTextHasError(@StringRes textId: Int): ViewInteraction = check(matches(EditTextErrorMatcher(textId)))
 
-fun ViewInteraction.hasChildCount(count: Int): ViewInteraction = check(matches(recyclerViewSizeMatcher(count)))
+fun ViewInteraction.hasChildCount(count: Int): ViewInteraction = check(matches(containerHasChildCount(count)))
