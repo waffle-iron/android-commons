@@ -20,6 +20,11 @@ class InitIntentsRuleTest {
         checkIntent(StartingActivity::class.java)
     }
 
+    @Test(expected = AssertionError::class)
+    fun shouldFailCheckIntent() {
+        checkIntent(Activity::class.java)
+    }
+
     class Activity : android.app.Activity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
