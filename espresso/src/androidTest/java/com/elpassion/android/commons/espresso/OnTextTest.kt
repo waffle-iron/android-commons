@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.test.rule.ActivityTestRule
 import android.widget.Button
 import android.widget.FrameLayout
+import com.elpassion.android.commons.espresso.test.R
 import org.junit.Rule
 import org.junit.Test
 
@@ -49,7 +50,7 @@ class OnTextTest {
     companion object {
         private val notExistingText = "not existing"
         private val existingText = "existing"
-        private val notExistingTextResource = 0
-        private val existingTextResource = R.string.app_name
+        private val notExistingTextResource = R.string.non_existing
+        private val existingTextResource = R.string.existing
     }
 }

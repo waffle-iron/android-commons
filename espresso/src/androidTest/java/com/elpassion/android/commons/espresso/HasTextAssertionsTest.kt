@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.test.rule.ActivityTestRule
 import android.widget.Button
 import android.widget.FrameLayout
+import com.elpassion.android.commons.espresso.test.R
 import org.junit.Rule
 import org.junit.Test
 
@@ -17,9 +18,19 @@ class HasTextAssertionsTest {
         onId(firstId).hasText(firstText)
     }
 
+    @Test(expected = AssertionError::class)
+    fun shouldFailConfirmHasText() {
+        onId(firstId).hasText("not existing text")
+    }
+
     @Test
     fun shouldConfirmHasTextFromRes() {
         onId(secondId).hasText(secondTextRes)
+    }
+
+    @Test(expected = AssertionError::class)
+    fun shouldFailConfirmHasTextFromRes() {
+        onId(secondId).hasText(R.string.non_existing)
     }
 
     class Activity : android.app.Activity() {
@@ -39,9 +50,9 @@ class HasTextAssertionsTest {
     }
 
     companion object {
-        private val firstId = 123
+        private val firstId = R.id.first
         private val firstText = "text"
-        private val secondId = 124
-        private val secondTextRes = R.string.app_name
+        private val secondId = R.id.second
+        private val secondTextRes = R.string.existing
     }
 }

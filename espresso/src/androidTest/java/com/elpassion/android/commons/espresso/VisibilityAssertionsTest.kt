@@ -5,6 +5,7 @@ import android.support.test.rule.ActivityTestRule
 import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
+import com.elpassion.android.commons.espresso.test.R
 import org.junit.Rule
 import org.junit.Test
 
@@ -16,6 +17,11 @@ class VisibilityAssertionsTest {
     @Test
     fun shouldConfirmIsDisplayedWhenVisible() {
         onId(firstId).isDisplayed()
+    }
+
+    @Test(expected = AssertionError::class)
+    fun shouldFailConfirmIsDisplayedWhenVisible() {
+        onId(secondId).isDisplayed()
     }
 
     @Test
@@ -32,6 +38,16 @@ class VisibilityAssertionsTest {
     @Test
     fun shouldConfirmDoesNotExists() {
         onId(notExistingId).doesNotExist()
+    }
+
+    @Test(expected = AssertionError::class)
+    fun shouldFailConfirmIsNotDisplayedWhenVisible() {
+        onId(firstId).isNotDisplayed()
+    }
+
+    @Test(expected = AssertionError::class)
+    fun shouldFailConfirmIsGoneWhenVisible() {
+        onId(firstId).isGone()
     }
 
     class Activity : android.app.Activity() {
@@ -55,9 +71,9 @@ class VisibilityAssertionsTest {
     }
 
     companion object {
-        private val firstId = 123
-        private val secondId = 124
-        private val thirdId = 125
-        private val notExistingId = 0
+        private val firstId = R.id.first
+        private val secondId = R.id.second
+        private val thirdId = R.id.third
+        private val notExistingId = R.id.fourth
     }
 }
