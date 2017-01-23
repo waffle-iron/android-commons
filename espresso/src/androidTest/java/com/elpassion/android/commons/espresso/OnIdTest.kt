@@ -1,9 +1,11 @@
 package com.elpassion.android.commons.espresso
 
+
 import android.os.Bundle
 import android.support.test.rule.ActivityTestRule
 import android.widget.Button
 import android.widget.FrameLayout
+import com.elpassion.android.commons.espresso.test.R
 import org.junit.Rule
 import org.junit.Test
 
@@ -34,7 +36,7 @@ class OnIdTest {
     }
 
     companion object {
-        private val notExistingId = 1234
-        private val existingId = 123
+        private val notExistingId = R.id.first
+        private val existingId = R.id.second
     }
 }
