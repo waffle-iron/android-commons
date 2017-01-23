@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.test.rule.ActivityTestRule
 import android.widget.FrameLayout
 import android.widget.RadioButton
+import com.elpassion.android.commons.espresso.test.R
 import junit.framework.AssertionFailedError
 import org.junit.Rule
 import org.junit.Test
@@ -50,7 +51,7 @@ class CheckedAssertionsTest {
     }
 
     companion object {
-        private val firstId = 123
-        private val secondId = 124
+        private val firstId = R.id.first
+        private val secondId = R.id.second
     }
 }
