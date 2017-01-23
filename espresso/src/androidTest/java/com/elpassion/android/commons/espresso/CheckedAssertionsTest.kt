@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.test.rule.ActivityTestRule
 import android.widget.FrameLayout
 import android.widget.RadioButton
+import junit.framework.AssertionFailedError
 import org.junit.Rule
 import org.junit.Test
 
@@ -20,6 +21,16 @@ class CheckedAssertionsTest {
     @Test
     fun shouldConfirmIsNotChecked() {
         onId(secondId).isNotChecked()
+    }
+
+    @Test(expected = AssertionFailedError::class)
+    fun shouldFailConfirmIsChecked() {
+        onId(secondId).isChecked()
+    }
+
+    @Test(expected = AssertionFailedError::class)
+    fun shouldFailConfirmIsNotChecked() {
+        onId(firstId).isNotChecked()
     }
 
     class Activity : android.app.Activity() {
