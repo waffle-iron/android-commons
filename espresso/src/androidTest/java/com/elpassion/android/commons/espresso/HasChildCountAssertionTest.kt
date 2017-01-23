@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.test.rule.ActivityTestRule
 import android.widget.Button
 import android.widget.FrameLayout
+import com.elpassion.android.commons.espresso.test.R
 import org.junit.Rule
 import org.junit.Test
 
@@ -16,6 +17,16 @@ class HasChildCountAssertionTest {
     fun shouldConfirmParentHasCorrectChildCount() {
         onId(rootId).hasChildCount(1)
         onId(childId).hasChildCount(3)
+    }
+
+    @Test(expected = AssertionError::class)
+    fun shouldFailConfirmParentHasSingleChild() {
+        onId(childId).hasChildCount(1)
+    }
+
+    @Test(expected = AssertionError::class)
+    fun shouldFailConfirmParentHasThreeChildren() {
+        onId(rootId).hasChildCount(3)
     }
 
     class Activity : android.app.Activity() {
@@ -34,7 +45,7 @@ class HasChildCountAssertionTest {
     }
 
     companion object {
-        private val rootId = 123
-        private val childId = 124
+        private val rootId = R.id.first
+        private val childId = R.id.second
     }
 }
