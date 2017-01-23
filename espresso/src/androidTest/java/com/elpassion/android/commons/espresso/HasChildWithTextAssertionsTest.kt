@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.test.rule.ActivityTestRule
 import android.widget.Button
 import android.widget.FrameLayout
+import com.elpassion.android.commons.espresso.test.R
 import org.junit.Rule
 import org.junit.Test
 
@@ -17,9 +18,19 @@ class HasChildWithTextAssertionsTest {
         onId(anId).hasChildWithText(firstText)
     }
 
+    @Test(expected = AssertionError::class)
+    fun shouldFailConfirmHasChildWithText() {
+        onText(firstText).hasChildWithText(firstText)
+    }
+
     @Test
     fun shouldConfirmHasChildWithTextRes() {
         onId(anId).hasChildWithText(secondTextRes)
+    }
+
+    @Test(expected = AssertionError::class)
+    fun shouldFailConfirmHasChildWithTextRes() {
+        onText(secondTextRes).hasChildWithText(secondTextRes)
     }
 
     @Test
@@ -27,9 +38,19 @@ class HasChildWithTextAssertionsTest {
         onId(anId).doesNotHaveChildWithText("not existing text")
     }
 
+    @Test(expected = AssertionError::class)
+    fun shouldFailConfirmDoesNotHaveChildWithText() {
+        onId(anId).doesNotHaveChildWithText(firstText)
+    }
+
     @Test
     fun shouldConfirmDoesNotHaveChildWithTextRes() {
-        onId(anId).doesNotHaveChildWithText(123)
+        onId(anId).doesNotHaveChildWithText(R.string.non_existing)
+    }
+
+    @Test(expected = AssertionError::class)
+    fun shouldFailConfirmDoesNotHaveChildWithTextRes() {
+        onId(anId).doesNotHaveChildWithText(secondTextRes)
     }
 
     class Activity : android.app.Activity() {
@@ -48,8 +69,8 @@ class HasChildWithTextAssertionsTest {
     }
 
     companion object {
-        private val anId = 124
+        private val anId = R.id.first
         private val firstText = "text"
-        private val secondTextRes = R.string.app_name
+        private val secondTextRes = R.string.existing
     }
 }
