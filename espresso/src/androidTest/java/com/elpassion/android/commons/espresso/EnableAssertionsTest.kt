@@ -22,6 +22,16 @@ class EnableAssertionsTest {
         onId(secondId).isDisabled()
     }
 
+    @Test(expected = AssertionError::class)
+    fun shouldFailConfirmIsEnabled() {
+        onId(secondId).isEnabled()
+    }
+
+    @Test(expected = AssertionError::class)
+    fun shouldFailConfirmIsDisabled() {
+        onId(firstId).isDisabled()
+    }
+
     class Activity : android.app.Activity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
