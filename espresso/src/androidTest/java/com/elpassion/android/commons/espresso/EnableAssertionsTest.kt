@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.test.rule.ActivityTestRule
 import android.widget.Button
 import android.widget.FrameLayout
+import com.elpassion.android.commons.espresso.test.R
 import org.junit.Rule
 import org.junit.Test
 
@@ -20,6 +21,16 @@ class EnableAssertionsTest {
     @Test
     fun shouldConfirmIsDisabled() {
         onId(secondId).isDisabled()
+    }
+
+    @Test(expected = AssertionError::class)
+    fun shouldFailConfirmIsEnabled() {
+        onId(secondId).isEnabled()
+    }
+
+    @Test(expected = AssertionError::class)
+    fun shouldFailConfirmIsDisabled() {
+        onId(firstId).isDisabled()
     }
 
     class Activity : android.app.Activity() {
@@ -39,7 +50,7 @@ class EnableAssertionsTest {
     }
 
     companion object {
-        private val firstId = 123
-        private val secondId = 124
+        private val firstId = R.id.first
+        private val secondId = R.id.second
     }
 }
