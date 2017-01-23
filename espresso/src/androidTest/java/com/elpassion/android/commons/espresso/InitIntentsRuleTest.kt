@@ -22,7 +22,7 @@ class InitIntentsRuleTest {
 
     @Test(expected = AssertionError::class)
     fun shouldFailCheckIntent() {
-        checkIntent(Activity::class.java)
+        checkIntent(NotStartingActivity::class.java)
     }
 
     class Activity : android.app.Activity() {
@@ -34,6 +34,13 @@ class InitIntentsRuleTest {
     }
 
     class StartingActivity : android.app.Activity() {
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(FrameLayout(this))
+        }
+    }
+
+    class NotStartingActivity : android.app.Activity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(FrameLayout(this))
