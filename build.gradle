@@ -75,3 +75,7 @@ String commonBuildToolsVersion() {
 boolean isCI() {
     return "true" == System.env.CI
 }
+
+boolean isOnMasterBranch() {
+    return "master" == System.env.TRAVIS_BRANCH
+}
