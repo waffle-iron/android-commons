@@ -11,8 +11,8 @@ android:
     - extra-android-m2repository
 
 before_install:
-  - test "$TRAVIS_BRANCH" == "master" && sh script/decrypt_files
+  - if [ $TRAVIS_BRANCH" == "master" ]; then sh script/decrypt_files fi
   - script/start_emulator.sh
 
 after_success:
-  - test "$TRAVIS_BRANCH" == "master" && ./gradlew uploadArchives
+  - if [ $TRAVIS_BRANCH" == "master" ]; then ./gradlew uploadArchives fi
